@@ -1,0 +1,121 @@
+\begin{thebibliography}{21}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+
+\bibitem[{{Angulo} {et~al.}(2021){Angulo}, {Zennaro}, {Contreras}, {Aric{\`o}},
+  {Pellejero-Iba{\~n}ez}, \& {St{\"u}cker}}]{BACCOEmulator}
+{Angulo}, R.~E., {Zennaro}, M., {Contreras}, S., {Aric{\`o}}, G.,
+  {Pellejero-Iba{\~n}ez}, M., \& {St{\"u}cker}, J. 2021, \mnras, 507, 5869,
+  2004.06245
+
+\bibitem[{{Blazek} {et~al.}(2015){Blazek}, {Vlah}, \& {Seljak}}]{Blazek2015}
+{Blazek}, J., {Vlah}, Z., \& {Seljak}, U. 2015, \jcap, 2015, 015, 1504.02510
+
+\bibitem[{{Blazek} {et~al.}(2019){Blazek}, {MacCrann}, {Troxel}, \&
+  {Fang}}]{Blazek2019}
+{Blazek}, J.~A., {MacCrann}, N., {Troxel}, M.~A., \& {Fang}, X. 2019, \prd,
+  100, 103506, 1708.09247
+
+\bibitem[{{Bridle} \& {King}(2007)}]{NLA}
+{Bridle}, S., \& {King}, L. 2007, New Journal of Physics, 9, 444, 0705.0166
+
+\bibitem[{{Brown} {et~al.}(2002){Brown}, {Taylor}, {Hambly}, \&
+  {Dye}}]{Brown2002}
+{Brown}, M.~L., {Taylor}, A.~N., {Hambly}, N.~C., \& {Dye}, S. 2002, \mnras,
+  333, 501, astro-ph/0009499
+
+\bibitem[{{Catelan} {et~al.}(2001){Catelan}, {Kamionkowski}, \&
+  {Blandford}}]{Catelan_IA_Tidal}
+{Catelan}, P., {Kamionkowski}, M., \& {Blandford}, R.~D. 2001, \mnras, 320, L7,
+  astro-ph/0005470
+
+\bibitem[{{Chisari} {et~al.}(2019){Chisari}, {Alonso}, {Krause}, {Leonard},
+  {Bull}, {Neveu}, {Villarreal}, {Singh}, {McClintock}, {Ellison}, {Du},
+  {Zuntz}, {Mead}, {Joudaki}, {Lorenz}, {Tr{\"o}ster}, {Sanchez}, {Lanusse},
+  {Ishak}, {Hlozek}, {Blazek}, {Campagne}, {Almoubayyed}, {Eifler}, {Kirby},
+  {Kirkby}, {Plaszczynski}, {Slosar}, {Vrastil}, {Wagoner}, \& {LSST Dark
+  Energy Science Collaboration}}]{CCL}
+{Chisari}, N.~E. {et~al.} 2019, \apjs, 242, 2, 1812.05995
+
+\bibitem[{{Euclid Collaboration: Knabenhans} {et~al.}(2019){Euclid
+  Collaboration: Knabenhans}, {Stadel}, {Marelli}, {Potter}, {Teyssier},
+  {Legrand }, {Schneider}, {Sudret}, {Blot}, {Awan}, {Burigana}, {Carvalho},
+  {Kurki-Suonio}, \& {Sirri}}]{EuclidEmulator}
+{Euclid Collaboration: Knabenhans}, M. {et~al.} 2019, \mnras, 484, 5509,
+  1809.04695
+
+\bibitem[{{G{\'o}rski} {et~al.}(2005){G{\'o}rski}, {Hivon}, {Banday},
+  {Wandelt}, {Hansen}, {Reinecke}, \& {Bartelmann}}]{healpix}
+{G{\'o}rski}, K.~M., {Hivon}, E., {Banday}, A.~J., {Wandelt}, B.~D., {Hansen},
+  F.~K., {Reinecke}, M., \& {Bartelmann}, M. 2005, \apj, 622, 759,
+  arXiv:astro-ph/0409513
+
+\bibitem[{{Harnois-D{\'e}raps} {et~al.}(2021){Harnois-D{\'e}raps}, {Martinet},
+  \& {Reischke}}]{Tidalator}
+{Harnois-D{\'e}raps}, J., {Martinet}, N., \& {Reischke}, R. 2021, \mnras,
+  2107.08041
+
+\bibitem[{{Heitmann} {et~al.}(2016){Heitmann}, {Bingham}, {Lawrence},
+  {Bergner}, {Habib}, {Higdon}, {Pope}, {Biswas}, {Finkel}, {Frontiere}, \&
+  {Bhattacharya}}]{miraTitan}
+{Heitmann}, K. {et~al.} 2016, \apj, 820, 108
+
+\bibitem[{{Heitmann} {et~al.}(2019){Heitmann}, {Finkel}, {Pope}, {Morozov},
+  {Frontiere}, {Habib}, {Rangel}, {Uram}, {Korytov}, {Child}, {Flender},
+  {Insley}, \& {Rizzi}}]{OuterRim}
+------. 2019, \apjs, 245, 16, 1904.11970
+
+\bibitem[{{Hilbert} {et~al.}(2017){Hilbert}, {Xu}, {Schneider}, {Springel},
+  {Vogelsberger}, \& {Hernquist}}]{Hilbert_IA2017}
+{Hilbert}, S., {Xu}, D., {Schneider}, P., {Springel}, V., {Vogelsberger}, M.,
+  \& {Hernquist}, L. 2017, \mnras, 468, 790, 1606.03216
+
+\bibitem[{{Hirata} \& {Seljak}(2004)}]{Hirata2004}
+{Hirata}, C.~M., \& {Seljak}, U. 2004, \prd, 70, 063526, astro-ph/0406275
+
+\bibitem[{{Jarvis} {et~al.}(2004){Jarvis}, {Bernstein}, \& {Jain}}]{TreeCorr}
+{Jarvis}, M., {Bernstein}, G., \& {Jain}, B. 2004, \mnras, 352, 338
+
+\bibitem[{{Kaiser} \& {Squires}(1993)}]{KaiserSquires}
+{Kaiser}, N., \& {Squires}, G. 1993, \apj, 404, 441
+
+\bibitem[{{Kilbinger} {et~al.}(2017){Kilbinger}, {Heymans}, {Asgari},
+  {Joudaki}, {Schneider}, {Simon}, {Van Waerbeke}, {Harnois-D{\'e}raps},
+  {Hildebrand t}, {K{\"o}hlinger}, {Kuijken}, \& {Viola}}]{Kilbinger17}
+{Kilbinger}, M. {et~al.} 2017, \mnras, 472, 2126, 1702.05301
+
+\bibitem[{{Mead} {et~al.}(2020){Mead}, {Brieden}, {Tr{\"o}ster}, \&
+  {Heymans}}]{HMCode2020}
+{Mead}, A., {Brieden}, S., {Tr{\"o}ster}, T., \& {Heymans}, C. 2020, arXiv
+  e-prints, arXiv:2009.01858, 2009.01858
+
+\bibitem[{{Samuroff} {et~al.}(2019){Samuroff}, {Blazek}, {Troxel}, {MacCrann},
+  {Krause}, {Leonard}, {Prat}, {Gruen}, {Dodelson}, {Eifler}, {Gatti},
+  {Hartley}, {Hoyle}, {Larsen}, {Zuntz}, {Abbott}, {Allam}, {Annis},
+  {Bernstein}, {Bertin}, {Bridle}, {Brooks}, {Carnero Rosell}, {Carrasco Kind},
+  {Carretero}, {Castander}, {Cunha}, {da Costa}, {Davis}, {De Vicente},
+  {DePoy}, {Desai}, {Diehl}, {Dietrich}, {Doel}, {Flaugher}, {Fosalba},
+  {Frieman}, {Garc{\'\i}a-Bellido}, {Gaztanaga}, {Gerdes}, {Gruendl},
+  {Gschwend}, {Gutierrez}, {Hollowood}, {Honscheid}, {James}, {Kuehn},
+  {Kuropatkin}, {Lima}, {Maia}, {March}, {Marshall}, {Martini}, {Melchior},
+  {Menanteau}, {Miller}, {Miquel}, {Ogando}, {Plazas}, {Sanchez}, {Scarpine},
+  {Schindler}, {Schubnell}, {Serrano}, {Sevilla-Noarbe}, {Sheldon}, {Smith},
+  {Sobreira}, {Suchyta}, {Tarle}, {Thomas}, {Vikram}, \& {DES
+  Collaboration}}]{DESY1_IA_Samuroff}
+{Samuroff}, S. {et~al.} 2019, \mnras, 489, 5453, 1811.06989
+
+\bibitem[{{Takahashi} {et~al.}(2012){Takahashi}, {Sato}, {Nishimichi},
+  {Taruya}, \& {Oguri}}]{Takahashi2012}
+{Takahashi}, R., {Sato}, M., {Nishimichi}, T., {Taruya}, A., \& {Oguri}, M.
+  2012, \apj, 761, 152
+
+\bibitem[{{The LSST Dark Energy Science Collaboration} {et~al.}(2018){The LSST
+  Dark Energy Science Collaboration}, {Mandelbaum}, {Eifler}, {Hlo{\v{z}}ek},
+  {Collett}, {Gawiser}, {Scolnic}, {Alonso}, {Awan}, {Biswas}, {Blazek},
+  {Burchat}, {Chisari}, {Dell'Antonio}, {Digel}, {Frieman}, {Goldstein},
+  {Hook}, {Ivezi{\'c}}, {Kahn}, {Kamath}, {Kirkby}, {Kitching}, {Krause},
+  {Leget}, {Marshall}, {Meyers}, {Miyatake}, {Newman}, {Nichol}, {Rykoff},
+  {Sanchez}, {Slosar}, {Sullivan}, \& {Troxel}}]{LSST-SRD}
+{The LSST Dark Energy Science Collaboration} {et~al.} 2018, arXiv e-prints,
+  arXiv:1809.01669, 1809.01669
+
+\end{thebibliography}
