@@ -93,7 +93,7 @@
 
 % Title of the paper, and the short title which is used in the headers.
 % Keep the title short and informative.
-\title[Lensing beyond 2pt: accounting for IA]{Cosmic shear beyond 2-point statistics: marginalisation over galaxy intrinsic alignment}
+\title[Lensing beyond 2pt: accounting for IA]{Intrinsic alignments from projected tidal fields: non-linear  impact on cosmic shear probes}
 
 % The list of authors, and the short list which is used in the headers.
 % If you need two or more lines of authors, add an extra line using \newauthor
@@ -144,8 +144,7 @@ Cosmology, gravitational lensing, cosmic shear, 2pt, beyond-2pt, simulations for
 \label{sec:theory}
 %----------
 
-Cosmic shear can be measured with $\gamma$-2PCF or with alternative probes....
-
+As mentioned in the introduction, cosmic shear can be measured and modelled from a variety of methods, many of which are used in this paper and presented in this section.  
 %-------------------------
 \subsection{$\gamma$-2PCF}
 \label{subsec:wl-th}
@@ -177,13 +176,13 @@ In the previous expression, $n^i(z)$ refers to the redshift distribution  in tom
 \xi_{\pm}^{ij}(\vartheta) = \frac{1}{2\pi}\int_0^{\infty} C_{\ell}^{ij} \, J_{0/4}(\ell \vartheta) \, \ell \, {\rm d}\ell,
 \label{eq:xipm_th}
 \end{eqnarray}
-where $J_{0/4}(x)$ are Bessel functions of the first kind. In this paper, these calculations are carried out by {\sc pyccl}\footnote{{\sc pyccl}:pypi.org/project/pyccl}  \citep{CCL}.
+where $J_{0/4}(x)$ are Bessel functions of the first kind. In this paper, these calculations are carried out by {\sc pyccl}\footnote{{\sc pyccl}:pypi.org/project/pyccl}  \citep{CCL} {\it or do we use cosmosis in the end?]}.
 The $n^i(z)$ are taken from the LSST Science Requirement Document \citep{LSST-SRD} and given by
  \begin{eqnarray}
 n(z) = N_0 z^2 {\rm exp} \left[-\left(\frac{z}{z_0}\right)^\alpha \right]\, ,
 \label{eq:nz}
 \end{eqnarray}
-with $(z_0, \alpha) = (0.13, 0.78)$ and $N_0$ normalised to provide a number density of $n_{\rm eff}$ = 3.0 gal arcmin$^{-2}$. This lower than the expected number density for the first data release ($n_{\rm eff}=10$ gal arcmin$^{-2}$), but is large enough to validate the methods presented in this paper and makes the calculation more tractable. The $n(z)$ is further split into five equi-populated tomographic bins, and smoothed with a Gaussian filter of width $\sigma = 0.05(1+z)$ in order to mimic the photometric selection process [{\it confirm with Niko}].  The resulting distributions\footnote{The construction of these tomographic $n(z)$ can be reproduced in {github...CCL\_SRD\_Niko}.} are shown in Figure \ref{fig:Nz}. 
+with $(z_0, \alpha) = (0.13, 0.78)$ and $N_0$ normalised to provide a number density of $n_{\rm eff}$ = 3.0 gal arcmin$^{-2}$. This lower than the expected number density for the first data release ($n_{\rm eff}\sim10$ gal arcmin$^{-2}$), but is large enough to validate our methods, and makes the calculation more tractable. The $n(z)$ is further split into five equi-populated tomographic bins, and smoothed with a Gaussian filter of width $\sigma = 0.05(1+z)$ in order to mimic the photometric selection process [{\it confirm with Niko}].  The resulting distributions\footnote{The construction of these tomographic $n(z)$ can be reproduced in {github...CCL\_SRD\_Niko}.} are shown in Figure \ref{fig:Nz}. 
 
 The cosmic shear signal can be measured from the ellipticities $\epsilon_{1/2}$ of simulated or observed galaxies, which, in absence of systematics and secondary signals, are unbiased estimators  of the cosmic shear components $\gamma_{1/2}$. The $\gamma$-2PCF are then estimated as:
  \begin{eqnarray}
@@ -191,26 +190,41 @@ The cosmic shear signal can be measured from the ellipticities $\epsilon_{1/2}$ 
  \label{eq:2PCF_estimator}
   \end{eqnarray}
 where the sum is over all pairs of galaxies $a,b$ separated by an angular separation $\vartheta$, taken from tomographic bins $i,j$. The tangential/cross components of their ellipticities are denoted as $\epsilon_{\rm t/\times}$, respectively. 
-$\Delta_{ab}(\vartheta)$ is the binning operator, equal to unity if the angular separation between the two galaxies falls within the $\vartheta$-bin, and zero otherwise, and the shape weights $w_{a,b}$ are set to unity. The measurements are carried out by {\sc Treecorr} \citep{TreeCorr}, in which we set the {\sc bin\_slop} parameter to 0.05. We compute the correlations in nine logarithmically-spaced angular bins ranging from 0.5 to 475.5 arcmin. 
+$\Delta_{ab}(\vartheta)$ is the binning operator, equal to unity if the angular separation between the two galaxies falls within the $\vartheta$-bin, and zero otherwise, and the shape weights $w_{a,b}$ are set to unity. In this paper, we construct lensing catalogues from numerical simulations (described in Sec. \ref{sec:sims}), from which we measure $ \widehat{\xi_{\pm}^{ij}}(\vartheta)$ with {\sc Treecorr} \citep{TreeCorr}. We set therein the {\sc bin\_slop} parameter to 0.05, then compute the correlations in nine logarithmically-spaced angular bins ranging from 0.5 to 475.5 arcmin. 
  
-We  produce convergence maps from each of these catalogues by assigning the shear signal onto spherical {\sc Healpix}\footnote{{\sc Healpix}: http://healpix.sf.net}  maps \citep{healpix} with $N_{\rm side}=4096$, then using the standard Kaiser \& Squires inversion technique \citep{KaiserSquires} implemented in {\sc healpy} to reconstruct a convergence maps with the same angular resolution, including a 2.0 arcmin smoothing beam in the inverse transform.
- 
- {[\it Some of this should go in the simulation section]}
  
  %-------------------------
 \subsection{Beyond-2pt}
 \label{subsec:beyond-2pt}
 
- Mention the different probes, how they are measured, some on galaxy catalogues, some on kappa maps...
- Kappa: Peaks, minima, lensing PDF,  Map3, Map2, MF,
- shear cats: squeezed bispectrum, DSS, three-point...
- models: lensing PDF, squeezed bispectrum, Map2, Map3, DSS
+Non-Gaussian statistics, often referred to `beyond-2pt' statistics, have the potential to extract cosmological information stored in the complex phases of the density field, whereas two-point functions such as the $\gamma$-2PCF can only access that encoded in the complex amplitudes. No optimal estimator has been identified to-date as being able to capture `all' information, but the numerous studies presented in the introduction all show a clear gain in constraining power, especially when used in combination with 2pt functions. Some of these take as input the galaxy catalogues directly, while others require instead convergence maps. Therefore, we produce convergence maps from the catalogues by assigning the shear signal onto spherical {\sc Healpix}\footnote{{\sc Healpix}: http://healpix.sf.net}  maps \citep{healpix} with $N_{\rm side}=4096$, then using the standard Kaiser \& Squires inversion technique \citep{KaiserSquires} implemented in {\sc healpy} to reconstruct a convergence maps with the same angular resolution, including a baseline 2.0 arcmin smoothing beam in the inverse transform. Note that this smoothing scales is quite small; some probes are difficult to model in that case, and would instead prefer larger smoothing scales. We take this into account on a case-by-case basis, as described below. 
+ 
+  {\it [Discuss tomography...]}
+ 
+\subsubsection{Catalogue-based estimators}
+
+We consider the following shear-based estimators:
+\begin{enumerate}
+\item The squeezed bispectrum, has theoretical model (Anik, can you summarise the measurements and modelling, and provide references?)
+\end{enumerate}
+
+\subsubsection{Convergence-based estimators}
+
+\begin{enumerate}
+\item Convergence three-point correlation function: (Alejandro, can you summarise the measurements and modelling, and provide references?)
+\item Peaks and Minima: local maxima and minima in the {\sc Healpix} convergence maps are counted in bins of signal-to-noise ratios, $\nu$. This is one of the most widely used non-Gaussian lensing statistics as it is simple to measure. Theoretical models have been developed to describe the largest peaks \citep[see][]{Shan18, HSCY1_Peaks_th}, however we report here the results on a much wider range of statistics, which can only be accurately modelled from numerical simulations, as in \citet{HD21, DESY3_Zuercher, HSCY1_Peaks_Sims, HD23}.
+\item Lensing PDF, has theoretical model (Cora/Lina, can you summarise the measurements and modelling, and provide references?)
+\item Map2 and Map3, has theoretical model  (Laila, can you summarise the measurements and modelling, and provide references?)
+\item Minkowski functionals (Nisha, can you summarise the measurements and modelling, and provide references?)
+\end{enumerate}
+
+ 
  %-------------------
  \section{Intrinsic alignment models}
  \label{sec:IA_th}
  %-------------------
  
-Galaxies interact with the tidal forces caused by the large-scale structure  they live in, causing their intrinsic shapes to acquire correlated alignments that has nothing to do with the correlations caused by weak lensing. This therefore acts as a secondary signal that contaminates the shape correlation measurements carried out in a cosmic shear analysis. There is no consensus on the actual physical model that describes the IA signal, and even when adopting these, the free parameters they contain are only weakly constrained from the data \citep[see][for a review]{IA_review}.  %The most widely used model in the literature is the non-linear alignment model of \citet{NLA}, however it is now recognised that this is an effective model with limited precision, and the community is now progressively shifting towards more complex models. 
+Galaxies interact with the tidal forces caused by the large-scale structure  they live in, causing their intrinsic shapes to acquire correlated alignments that has nothing to do with the correlations caused by weak lensing. This therefore acts as a secondary signal that contaminates the shape correlation measurements carried out in a cosmic shear analysis. There is no consensus on the actual physical model that describes the IA signal, and even when adopting these, the free parameters they contain are only weakly constrained from the data \citep[see][for reviews]{IA_review1, IA_review2}.  %The most widely used model in the literature is the non-linear alignment model of \citet{NLA}, however it is now recognised that this is an effective model with limited precision, and the community is now progressively shifting towards more complex models. 
 In this paper we consider four such IA models that we describe in the following sub-sections. In all cases, our models couple the galaxy intrinsic shapes with the local over-density and projected tidal field , then prescribe an intrinsic ellipticity tensor $\gamma_{ij}^{\rm IA}$, from which observed ellipticities are extracted as:
  \begin{eqnarray}
 \epsilon_{1}^{\rm IA} = \gamma_{xx}^{\rm IA} - \gamma_{yy}^{\rm IA} \, , \hspace{1.5cm}\epsilon_{2}^{\rm IA} = 2 \gamma_{xy}^{\rm IA}\, .
