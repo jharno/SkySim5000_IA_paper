@@ -367,7 +367,7 @@ As shown in \citet{Tidalator} for Cartesian coordinates, projected tidal fields 
 s_{xx}({\boldsymbol \theta})  =  \left[\frac{ \delta + Q}{2}  - \frac{\delta}{3}\right] \, ,s_{yy}({\boldsymbol \theta})  =  \left[\frac{\delta - Q}{2}  - \frac{\delta}{3}\right] \, , s_{xy}({\boldsymbol \theta}) = U
  \label{eq:sij_2D_sph}
  \end{eqnarray}
-where the $U({\boldsymbol \theta})$ and $Q({\boldsymbol \theta})$ maps are smoothed by the Gaussian beam with width $\sigma_{\rm G}$. We suppress large artificial tidal fields at the maps boundary by replicating 8$\times$ the density maps defined on the octant and working on a full sky density $\delta$; we re-apply the octant mask on the tidal field maps after the operation. Note that the value of $\sigma_{\rm G}$ is a free parameter both in the infusion technique described in this paper and in the NLA and TATT models. We therefore explore two cases, $\sigma_{\rm G}=0.1$Mpc and 0.5Mpc, however this may be further optimised in the future.
+where the $U({\boldsymbol \theta})$ and $Q({\boldsymbol \theta})$ maps are smoothed by the Gaussian beam with width $\sigma_{\rm G}$. We suppress large artificial tidal fields at the maps boundary by replicating 8$\times$ the density maps defined on the octant and working on a full sky density $\delta$; we re-apply the octant mask on the tidal field maps after the operation. Note that the value of $\sigma_{\rm G}$ is a free parameter both in the infusion technique described in this paper and in the NLA and TATT models. We therefore explore two cases, $\sigma_{\rm G}=0.1$Mpc and 0.5Mpc, however this may be further optimised in the future. Finally, the full-sky density field is downgraded from $N_{\rm side}=8192$ to $N_{\rm side}=4096$ since the smoothing washed the smallest angular scales. 
 
 
 
@@ -511,10 +511,15 @@ To match the TT theory, we need to apply the following calibration: $\epsilon^{\
 
 
 
-%\subsection{Validation with full inference}
- %\label{sec:inference}
-
-%priors, firecrown, Takahashi $P(k)$
+\subsection{Validation with full inference}
+ \label{sec:inference}
+\begin{figure}
+%\includegraphics[width=\columnwidth]{graphs/triangle_nla_5D.pdf}
+\includegraphics[width=\columnwidth]{graphs/triangle_bta_sweep.pdf}
+\caption{Cosmological inference from the NLA-infused simulations, analysed the extended-NLA model. The cross-hairs represent the truth as fixed in the OuterRim $N$-body simulations \citep{OuterRim}.}
+\label{fig:triangle_nla}
+\end{figure}
+priors, {\sc CosmoSIS}, Takahashi $P(k)$, etc.
 
 
 \section{Higher-order weak lensing statistics}
@@ -572,6 +577,14 @@ Some of the results in this paper have been derived using the {\sc healpy} and {
 %%%%%%%%%%%%%%%%% APPENDICES %%%%%%%%%%%%%%%%%%%%%
 
 \appendix
+
+
+\begin{figure*}
+\includegraphics[width=\columnwidth]{graphs/xip_sims_vs_th.eps}
+\includegraphics[width=\columnwidth]{graphs/xim_sims_vs_th.eps}
+\caption{Fractional difference on $\xi_\pm$ between the measurements from SkySim5000 and the model predictions.  }
+\label{fig:frac_err_sims_th}
+\end{figure*}
 
 \section{Projected Tidal Field}
 \label{app:2d_TT}
