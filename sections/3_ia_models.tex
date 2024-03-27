@@ -114,6 +114,15 @@ The extended-NLA model represents an enhanced approach to intrinsic alignment mo
 It appears to align more closely with the outcomes of certain hydro-dynamical simulations, as indicated by \citealt{Hilbert_IA2017}.
 From a theoretical standpoint, this model is more physically grounded because it accounts for the fact that galaxies in the universe are not dispersed randomly, an assumption the traditional NLA model makes.
 
+Finally, we note that fully modelling our infusion method includes contributions beyond one-loop calculations in the $II$ term. Indeed, the two-point function correlating ellipticities (Eq. \ref{eq:tidal_th_deltaNLA}) between redshift bins $i,j$ is given by:
+ \begin{eqnarray}
+\langle \epsilon_{i}^{\delta-\rm NLA} \epsilon_{j}^{\delta-\rm NLA}\rangle &=& \langle \epsilon_{i}^{\rm NLA}\times(1 + b_{\rm TA}\delta_i) \epsilon_{j}^{\rm NLA}\times(1 + b_{\rm TA}\delta_j)\rangle\\
+&=& \langle \epsilon_{i}^{\rm NLA}  \epsilon_{j}^{\rm NLA}\rangle \nonumber \\
+&+& b_{\rm TA} \times \left(\langle \epsilon_{i}^{\rm NLA}  \epsilon_{j}^{\rm NLA}\delta_j  \rangle + \langle \epsilon_{i}^{\rm NLA}  \epsilon_{j}^{\rm NLA}\delta_i  \rangle \right)\nonumber\\
+&+& b_{\rm TA}^2 \langle \epsilon_{i}^{\rm NLA}  \epsilon_{j}^{\rm NLA}\delta_i  \delta_j \rangle \, ,
+\label{eq:2pcf_deltaNLA}
+\end{eqnarray}
+where the last term is fourth order and involves two-loop calculations. For this reason, our $\delta$-NLA model is not expected to be well described by the one-loop calculations. Note that replacing one of the ellipticity terms by the cosmic term includes only terms up to third order in the field (e.g $\langle \epsilon_{i}^{NLA}\delta_i \gamma_j \rangle$, ...), hence  we expect the GI term to be well described. The above equation also predict that the deviations from one-loop theory scales as $b_{\rm TA}^2$, hence should be larger for population that are more biased.
 %Compared to the NLA, the \dNLA is a stronger IA model, especially on small scales \citep{Blazek2019}, and seems to be preferred by some hydro-dynamical simulations \citep{Hilbert_IA2017}.
 %It is also better motivated from a physical point of view, since galaxies are not randomly distributed in our Universe as the NLA assumes.
 
