@@ -1,0 +1,196 @@
+\section{Intrinsic alignment models}
+ \label{sec:IA_th}
+
+ 
+Galaxies are influenced by the gravitational tidal forces from the vast structures in which they reside, leading to their intrinsic shapes being aligned in a way unrelated to the effects observed through weak lensing.
+This alignment serves as an additional factor (a contamination) that skews the accuracy of shape correlation measurements carried in cosmic shear analyses.
+The underlying physical principles that govern intrinsic alignments (IA) remain unclear, and even the models that attempt to describe these alignments have parameters that are not definitively determined by existing data, as discussed in various review articles \citep[see][for reviews]{Joachimi_IA_review_2015, Kirk_IA_review_2015, Troxel_IA_review_2015, Kiessling_IA_review_2015}.
+ 
+%Galaxies interact with the tidal forces caused by the large-scale structure they are located in, causing their intrinsic shapes to acquire correlated alignments that has nothing to do with the correlations caused by weak lensing (the cosmic shear).
+%This therefore acts as a secondary signal that contaminates the shape correlation measurements carried out in a cosmic shear analysis. 
+%There is no consensus on the actual physical model that describes the IA signal, and even when adopting these, the free parameters they contain are only weakly constrained from the data \citep[see][for reviews]{Joachimi_IA_review_2015, Kirk_IA_review_2015, Troxel_IA_review_2015, Kiessling_IA_review_2015}.
+%The most widely used model in the literature is the non-linear alignment model of \citet{NLA}, however it is now recognised that this is an effective model with limited precision, and the community is now progressively shifting towards more complex models. 
+In this study, we explore two models of coupling, each implemented across three scenarios of galaxy bias.
+This approach yields six distinct models for intrinsic alignments, which are detailed in the subsequent subsections. 
+Our models establish a connection between the intrinsic shapes of galaxies and the local density fluctuations as well as the projected tidal fields. 
+This linkage then defines an intrinsic ellipticity tensor, $\gamma_{ij}^{\rm IA}$, from which the intrinsic ellipticities are extracted.
+%In this work we consider two coupling models, each applied on three galaxy bias cases, resulting in six different IA models, described in the following sub-sections.
+%In all cases, our models couple the galaxy intrinsic shapes with the local over-density and projected tidal field, then prescribes an intrinsic ellipticity tensor $\gamma_{ij}^{\rm IA}$, from which intrinsic  ellipticities are extracted:
+\begin{equation}
+\begin{split}
+\epsilon_{1}^{\rm IA} &= \gamma_{xx}^{\rm IA} - \gamma_{yy}^{\rm IA} \, , 
+\\
+\epsilon_{2}^{\rm IA} &= 2 \gamma_{xy}^{\rm IA} \, .
+\label{eq:tidal_th_deltaNLA}
+\end{split}
+\end{equation}
+\niko{shouldn't the indices be $i$ and $j$ here in the equation?}
+
+ 
+\subsection{Nonlinear alignment (NLA) Model}
+
+%The observed ellipticity of a galaxy ${\boldsymbol \epsilon}_{\rm obs} $ is a combination of its intrinsic shape ${\boldsymbol \epsilon}_{\rm int}$ and a cosmic shear signal ${\boldsymbol \gamma}$, the former of which can be further divided in a random component ${\boldsymbol \epsilon}^{\rm ran}$ and an alignment term ${\boldsymbol \epsilon}^{\rm IA}$.
+The NLA model of \citet{NLA} is the most widely used intrinsic alignment model in the cosmic shear literature thus far.
+According to the NLA, IA are caused by a linear coupling between galaxy shapes and the nonlinear large-scale tidal field at the galaxy position.
+The intrinsic ellipticities $\epsilon_{1,2}^{\rm NLA}$ are related to tidal field $s_{ij}$ by:
+\begin{equation}
+\begin{split}
+\epsilon_1^{\rm NLA} &= - \frac{A_{\rm IA}\bar{C_1}\bar{\rho}(z)}{D(z)} (s_{xx} - s_{yy}) , \\    \epsilon_2^{\rm NLA} &= - \frac{2 A_{\rm IA}\bar{C_1}\bar{\rho}(z)}{D(z)} s_{xy}\;,
+\label{eq:tidal_th}
+\end{split}
+\end{equation}
+where $s_{ij} = \partial_{ij}\phi$ are the Cartesian components of the tidal tensor of the gravitational potential,  $D(z)$ is the linear growth factor, $\bar{\rho}(z)$ is the mean matter density at redshift $z$, and $\bar{C_1}=5\times 10^{-14} M_{\odot}^{-1} h^{-2} {\rm Mpc}^3$ is a constant calibrated in \citet{Brown2002}. 
+The strength of tidal coupling is controlled by the parameter $A_{\rm IA}$, a key variable in the NLA model primarily constrained by current cosmic shear studies.
+While this model can incorporate the dependency  on redshift and luminosity, such adjustments are not applied in our analysis.
+It's important to clarify that the "nonlinear" aspect of the model's name might be somewhat misleading; it actually pertains to the use of the nonlinear matter power spectrum $P(k)$ in its computations. 
+The relationship between the intrinsic shapes of galaxies and the tidal field remains linear.
+Equation (\ref{eq:tidal_th}) is employed to determine the intrinsic ellipticities of galaxies using the tidal field components $s_{xx}$, $s_{yy}$, and $s_{xy}$, which are detailed in Section \ref{subsec:IA_infusion}.
+%The strength of the tidal coupling is modulated by the amplitude parameter $A_{\rm IA}$, which is the main NLA parameter constrained by current cosmic shear surveys.
+%Note that this model can be augmented by redshift and luminosity dependencies, however we do not use these here. 
+%Also note that the term `nonlinear' in the model name can be  misleading, as it refers to the nonlinear matter power spectrum $P(k)$ that is used in its calculations; the coupling between the intrinsic galaxy shapes and the tidal field is still linear and Eq.( \ref{eq:tidal_th}) is used to assign intrinsic ellipticities to galaxies, given maps of the tidal field components $s_{xx}$, $s_{yy}$ and $s_{xy}$ (presented in  Sec. \ref {subsec:IA_infusion}).
+
+\niko{I think we should introduce II, GG, GI, and IG terms in the cosmic shear stats at the beginning when we define C ells. That way we do not mention them out of the blue here}
+In the context of two-point functions, these intrinsic shapes contribute to an intrinsic-intrinsic ($II$) term and an intrinsic-shear coupling ($GI$) term \citep{Hirata2004}, both secondary signals to the true cosmic shear ($GG$) term, with the $GI$ typically dominating the IA sector in cross-tomographic measurements. 
+The $II$ and $GI$ terms  can be both computed from the matter power spectrum as: 
+ \begin{eqnarray}
+P_{II}(k,z) =  \left(\frac{A_{\rm IA}\bar{C_1}\bar{\rho}(z)}{D(z)}\right)^2a^4(z) P_{\delta}(k,z)
+\label{eq:Pk_II_th}
+\end{eqnarray}
+and
+\begin{eqnarray}
+P_{GI}(k,z) = - \frac{A_{\rm IA}\bar{C_1}\bar{\rho}(z)}{D(z)}a^2(z) P_{\delta}(k,z) \, ,
+\label{eq:Pk_GI_th}
+\end{eqnarray}
+which can then be past to the Limber integration (Eqs. \ref{eq:C_ell} and \ref{eq:xipm_th}) to compute  the secondary signals $\xi_{\pm}^{II}(\theta)$ and $\xi_{\pm}^{GI}(\theta)$. 
+
+
+\subsection{Extended-NLA Model}
+\label{subsec:IA_th_extNLA}
+
+%[{\it here}]
+
+%As discussed later, the key quantity of interest to cosmic shear analysis is not the tidal tensor itself but its trace-free version, since shape correlations with the density field are subdominant, even though peaks in high density environments are less elliptical on average. Consequently, the model itself has a restricted range of validity: on small scales, higher order couplings to the ellipticity field ${\boldsymbol \epsilon}^{\rm IA}$  become important, however these are neglected in the NLA model. Only the non-linear evolution of the tidal tensor itself is taken into account, since it does fit observations quite well.
+
+%We note that the NLA predicts additional higher-order terms and non-zero $B$-modes \citep{Hirata2004} that we neglect  in this analysis. Also, as shown in \citet{IA_EFT}, the NLA model can be interpreted as the lowest order description of the alignment process of galaxies in the light of an effective field theory description. 
+
+The NLA model, as discussed in the previous section, is a common tool for analyzing cosmic data but has significant limitations, indicating it might not accurately capture the intricacies of the intrinsic alignment signal. 
+Recognizing the potential importance of more complex interactions, extensions to the NLA model that incorporate perturbation theory have been proposed by \citet{Blazek2015} and  \citet{Blazek2019}. 
+These extensions highlight the necessity of considering higher-order couplings.
+A key enhancement involves incorporating a term that accounts for over-density weighting.
+This adjustment stems from the observation that galaxies, which serve as the observational basis for IA, are not randomly distributed but rather follow the underlying matter density distribution. 
+The theoretical framework for including this term employs one-loop perturbation theory, as outlined by \citep{Blazek2019}, under the assumption that galaxies linearly map the over-density, denoted as '$\delta$'.
+In essence, this approach modifies the NLA model predictions by applying a $\delta$-weight at the locations of galaxies, thereby refining the model's accuracy in representing the physical reality.
+Implementing this adjustment in numerical simulations could theoretically be straightforward by enhancing the calculated NLA ellipticities with the aforementioned over-density weight:
+%The NLA model presented in the last section has been widely used in cosmic data analyses, but it has important known limitations and is therefore bound to fail at describing the IA signal with high precision.
+%A perturbation theory extension to the NLA has been introduced in \citet{Blazek2015} and  \citet{Blazek2019}, where it is recognised that higher order couplings could be important and should be considered.
+%The first additional term to be included is an over-density weighting term, which arises from the fact that  the intrinsic alignment of galaxies can only be observed at the galaxy positions, which are not distributed randomly on the sky but instead trace the underlying matter density. 
+%Accounting for this extra term in theoretical predictions is done with one-loop perturbation theory \citep{Blazek2019} by assuming that the over-density `$\delta$' is linearly traced by the galaxies. 
+%Physically, it corresponds to adding a $\delta$-weight to the NLA predictions at the local galaxy positions. 
+%At the level of numerical simulations, this could be done in principle simply by augmenting the NLA ellipticities with this weight, namely:
+\begin{eqnarray}
+\epsilon_{1/2}^{\delta-\rm NLA} = \epsilon_{1/2}^{\rm NLA}\times(1 + \delta \: b_{\rm TA}) \, .
+\label{eq:tidal_th_deltaNLA}
+\end{eqnarray}
+%The $b_{\rm TA}$ term corresponds to the (largely unconstrained) biasing relation between the galaxies and the underlying matter field.
+%In practice however, we find this method to be noisy, as many galaxies placed at random actually reside in regions of negative or small $\delta$.
+%It is instead preferable to generate mock catalogues with the linear biasing directly applied when assigning galaxy positions, after which no weighting is necessary.
+%Subsequently, Eq. (\ref{eq:tidal_th_deltaNLA}) can be used to modify the value of the effective $b_{\rm TA}$ if not wanting to re-populate the light-cone. 
+%Indeed, from a mock with a given bias $b_{\rm TA, orig}$, we can rescale the IA contribution to a different $b_{\rm TA, new}$ as:
+The term $b_{\rm TA}$ represents the bias relationship between galaxies and the matter field beneath them, a relationship that remains largely undetermined.
+In practical applications, this method tends to produce unreliable results due to the tendency of galaxies to be located in areas with negative or minimal $\delta$ values when placed randomly.
+A more effective approach is to create mock catalogs by directly applying linear biasing to determine galaxy positions, which eliminates the need for subsequent weighting.
+
+For adjustments without the necessity to repopulate the entire light-cone distribution, Equation (\ref{eq:tidal_th_deltaNLA}) can be applied to alter the effective value of $b_{\rm TA}$. This allows for the recalibration of the intrinsic alignment contribution from an original bias value, $b_{\rm TA}^{\rm orig}$, to a new desired bias, $b_{\rm TA}^{\rm new}$, as:
+%\begin{eqnarray}
+%{\boldsymbol \epsilon}^{\rm int}_{b_{\rm TA}^{\rm new}}  = \frac{(1 + b_{\rm TA}^{\rm new} \delta)}{(1 + b_{\rm TA}^{\rm orig}\delta)}{\boldsymbol \epsilon}^{\rm int}_{b_{\rm TA}^{\rm orig}} \, .
+%\label{eq:bta_rescale}
+%\end{eqnarray}
+\begin{eqnarray}
+{\boldsymbol \epsilon}^{\rm new} = \frac{1 + \delta \: b_{\rm TA}^{\rm new}}{1 + \delta \: b_{\rm TA}^{\rm orig}}{\boldsymbol \epsilon}^{\rm orig} \, .
+\label{eq:bta_rescale}
+\end{eqnarray}
+
+The extended-NLA model represents an enhanced approach to intrinsic alignment modeling, particularly effective at small scales, as noted by \citealt{Blazek2019}. 
+It appears to align more closely with the outcomes of certain hydro-dynamical simulations, as indicated by \citealt{Hilbert_IA2017}.
+From a theoretical standpoint, this model is more physically grounded because it accounts for the fact that galaxies in the universe are not dispersed randomly, an assumption the traditional NLA model makes.
+
+%Compared to the NLA, the \dNLA is a stronger IA model, especially on small scales \citep{Blazek2019}, and seems to be preferred by some hydro-dynamical simulations \citep{Hilbert_IA2017}.
+%It is also better motivated from a physical point of view, since galaxies are not randomly distributed in our Universe as the NLA assumes.
+
+
+%-----------------------------------
+\subsection{Tidal Torque (TT) Model}
+\label{subsec:IA_th_TT}
+
+%As shown in \citet{Blazek2019}, one-loop perturbative calculations include another term, by which galaxies acquire an intrinsic alignment via a coupling between their angular momentum and the tidal field, which can be re-expressed as a quadratic coupling between the tidal field and their shape.
+%In this tidal torque model (TT), intrinsic ellipticities are given by:
+\citet{Blazek2019} demonstrates that one-loop perturbative calculations introduce an additional term, accounting for how galaxies develop intrinsic alignments through the interaction between their angular momentum and the tidal field.
+This interaction can alternatively be described as a quadratic coupling between the tidal field and the shapes of the galaxies. 
+Within this tidal torquing theory (TT), the intrinsic ellipticities of galaxies are determined as follows:
+
+\begin{eqnarray}
+\gamma_{ij}^{\rm IA, TT} = C_2 \left[ \sum_{k=x,y,z} s_{ik} s_{kj} -\frac{1}{3} \delta_{ij} s^2 \right] \, ,
+\label{eq:tidal_th_TT}
+\end{eqnarray}
+where 
+\begin{eqnarray}
+C_2 = \frac{5 A_2 \bar{C_1} \Omega_{\rm m} \rho_{\rm crit}}{D^2(z)} \,  = \left[ \frac{-5 A_2}{A_1 D(z)} \right] C_1.
+\end{eqnarray}
+%Under the approximation that line-of-sight alignments are mostly suppressed from cosmic shear measurement due to the broad lensing kernels, we show in  Appendix \ref{app:2d_TT} that the terms inside the square bracket in Eq. (\ref{eq:tidal_th_TT}) lead to both quadratic in the tidal field components:
+Assuming that alignments along the line of sight are largely suppressed in cosmic shear measurements due to the broadlensing kernels, we demonstrate in Appendix \ref{app:2d_TT} that the terms within the square brackets of Eq. (\ref{eq:tidal_th_TT}) result in quadratic terms of the tidal field components:
+
+\begin{equation}
+\begin{split}
+\epsilon_1^{\rm TT} &= C_2  \left[ s_{xx}^2 - s_{yy}^2\right] \\
+ \epsilon_2^{\rm TT} &= 2 C_2 s_{xy}\left[s_{xx}+s_{yy}  \right]\, .
+\end{split}
+\end{equation}
+In this model, galaxies are also assumed to be randomly distributed on the sky. 
+Incorporating the $\delta$-weighting necessitates third-order perturbation theory.
+
+%In this model, galaxies are also assumed to be randomly distributed on the sky; the $\delta$-weighted term requires third order perturbations.
+
+
+%-----------------------------------
+\subsection{Extended-TT Model}
+\label{subsec:IA_th_extTT}
+
+%Following the relation between the NLA and the $\delta$-NLA model, galaxies in the TT model are also assume to be randomly scattered on the sky, which we know to be a bad approximation. 
+
+
+%Computing the next-order contribution to the TT model involves two-loop perturbation theory calculations that have not been carried out yet due to the significantly complexity of such task. 
+%In simulations however, the $\delta$-weighting term is straight-forward to implement, as it involves to simply infuse the TT model onto galaxies that trace the matter field with a non-zero biasing factor.
+%As for the \dNLA model, the \dTT ellipticities can  be related to the TT model as:
+Calculating the next level of contribution to the TT model requires engaging in two-loop perturbation theory, a process that remains undone due to its considerable complexity.
+However, in simulations, applying the $\delta$-weighting term to the TT model is relatively straightforward.
+This step merely requires integrating the TT framework onto galaxies that map the matter field with a non-zero bias factor. 
+Similar to the \dNLA model, the ellipticities within the \dTT framework can be connected back to the original TT model as follows:
+\begin{eqnarray}
+\epsilon_{1/2}^{\delta-\rm TT} = \epsilon_{1/2}^{\rm TT}\times(1 + \delta \: b_{\rm TA}) \, .
+\label{eq:tidal_th_deltaTT}
+\end{eqnarray}
+%We choose instead here again to use galaxy positions that themselves are linearly biased.
+%As there are currently no theoretical models for \dTT, predictions from this model are, at the moment, completely simulation-based. 
+In this study, we opt to utilize galaxy positions that are subject to linear biasing, mirroring our earlier approach.
+Given the lack of established theoretical frameworks for the \dTT model, any predictions derived from it are currently reliant solely on simulations.
+ This approach underscores our reliance on empirical data to guide our understanding of the implications for \dTT, pending the development of a comprehensive theoretical model.
+
+ 
+ %-----------------------------------
+\subsection{$b_{\rm nl}$-TATT}
+\label{subsec:HOD-TATT}
+\niko{there is a compiling error here (due to the subscript) in the title, maybe we can consider renaming this?}
+
+
+The previous four models combine the linear and quadratic couplings to the cosmic tidal forces  (Eqs. \ref{eq:tidal_th} and \ref{eq:tidal_th_TT}, respectively) with galaxies positioned  either at random or linearly tracing the total matter distribution.
+While these are interesting and useful approximations, the connection between galaxies and dark matter is far more complex, and a more accurate picture consists of galaxies populating dark matter haloes, typically with a relaxed, older galaxy close to the centre, and a number of other satellite galaxies orbiting the former.
+This halo occupation distribution (HOD) formalism has been used to describe many galaxy samples \citep[\eg][]{SDSS-HOD, BOSS-HOD, GAMA-HOD, DESI-HOD} and is therefore routinely used to in-paint galaxies in dark matter-only simulations.
+The last two models from this paper exploit such HOD galaxy samples, extracted from the same underlying distributions, but in this case the galaxy bias is non-linear (labelled $b_{\rm nl}$), with levels on non-linearity that vary with HOD parameters (see Sec. \ref{subsec:HOD}).
+We couple these galaxies with both Eqs. \ref{eq:tidal_th} and \ref{eq:tidal_th_TT}, resulting in two final models which we name  $b_{\rm nl}$-NLA and  $b_{\rm nl}$-TT, both being combined into the more general  $b_{\rm nl}$-TATT model.
+
+%Finally, it is worth recalling here that other IA models exist in the literature, and that at this point observations are not precise enough to set strong constraints on them, further motivating our flexible multi-model approach.  
+
+%\subsection{Likelihood}
+%\label{subsec:likelihood}
+
+%Multi-Gaussian likelihood, analytical Covariance matrix (Gauss + non-Gauss + SSC) from {\sc TJPCov}, Firecrown, sampler, priors.

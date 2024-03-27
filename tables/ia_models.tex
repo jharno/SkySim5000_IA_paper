@@ -1,0 +1,25 @@
+% Requires the booktabs if the memoir class is not being used
+\begin{table}
+   \centering
+   %\topcaption{Table captions are better up top} % requires the topcapt package
+    \caption{IA models infused in this work and the respective fiducial values of the model parameters.}
+   \begin{tabular}{@{} lcr @{}} % Column formatting, @{} suppresses leading/trailing space
+      \hline
+      \hline
+       %\multicolumn{2}{c}{Item} \\
+      model   		& ($A_{\rm IA}, \: b_{\rm TA}, \: A_2)$ \\
+      \hline
+      NLA     		& {($\pm$1, 0, 0) }&  \\
+      \multirow{2}{*}{extended-NLA }  	&   {($\pm$1, 1, 0)}   \\
+      							&  {(1, 2, 0)}   \\
+      TT 			&  {(0, 0, $\pm$1)} &  \\
+      \multirow{2}{*}{extended-TT} 	&  {(0, 1 ,$\pm$1)}   \\
+      				&  {(0, 2, 1)}   \\
+      TATT- fiducial	&  { (1, 1, 1)}  \\
+      %TATT-DESY3	&   (-0.7,1,1.9) & \\
+      \hline
+      \hline
+
+   \end{tabular}
+   \label{table:IAmodels}
+\end{table}
