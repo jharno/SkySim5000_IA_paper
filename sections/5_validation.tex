@@ -1,0 +1,103 @@
+\section{Validation with $\xi_{\pm}$}
+\label{sec:validation}
+
+\input{tables/ia_models}
+
+
+%------------------------------
+\subsection{NLA model}
+\label{subsubsec:sigma_G}
+
+See Fig. \ref{fig:xi_NLA}
+
+\input{figures/shear_corr_funcs/xi_nla}
+
+%------------------------------
+\subsection{Extended-NLA model}
+\label{subsec:deltaNLA}
+
+See Fig. \ref{fig:xi_deltaNLA}.
+
+\input{figures/shear_corr_funcs/xi_delta_nla}
+
+\input{figures/shear_corr_funcs/xi_delta_nla_rescaled}
+
+
+We verified that it works equally well for $b_{\rm TA}$ = 1.0 and 2.0.
+
+%------------------------------
+
+Using this, we $b_{\rm TA}$-rescale our $b_{\rm TA}=1.0$ mock to $b_{\rm TA}=2.0$ and to $0.0$ mocks. Results are shown in Fig. \ref{fig:xi_deltaNLA_rescaled} for one of the tomographic bin. 
+It works reasonably well, but lower redshift are less accurate due to the increased  shot noise (not shown), hence we do not recommend using this.
+
+%------------------------------
+\subsection{TT model}
+\label{subsec:TT}
+
+See Fig. \ref{fig:xi_TT}
+
+\input{figures/shear_corr_funcs/xi_tt}
+
+\input{figures/shear_corr_funcs/xi_delta_tt}
+
+
+To match the theory, we need to apply the following calibration: $\epsilon^{\rm IA, TT}(z<0.5) \rightarrow \epsilon^{\rm IA, TT} /2.5$.
+
+%------------------------------
+\subsection{Extended-TT model}
+\label{subsec:TT}
+
+See Fig. \ref{fig:xi_deltaTT}
+
+To match the TT theory, we need to apply the following calibration: $\epsilon^{\rm IA, TT}(z<0.5) \rightarrow \epsilon^{\rm IA, TT} /5.0$, followed by $\epsilon^{\rm IA, TT} \rightarrow \epsilon^{\rm IA, TT}/7.0$.
+
+%------------------------------
+\subsection{HOD-NLA model}
+\label{subsec:HOD}
+
+
+\input{figures/shear_corr_funcs/xi_hod_nla}
+
+\input{figures/shear_corr_funcs/xi_hod_tt}
+
+
+The NLA and extended-NLA models respectively assume a null and a linear bias between the source galaxies and the underlying matter field, both of which are approximations to the galaxy dark matter connection.
+In fact, galaxies populate dark matter over-densities in a more complex manner \citep{GalaxyPopulationPapers}, which is better described by the Halo Occupation Distribution approach (HOD hereafter).
+The largest difference here is that these HOD galaxies are non-linear biased tracers of the matter distribution, which means that a larger number can populate regions of large over-densities, where the tidal fields are generally stronger. 
+We therefore expect the impact of IA to be stronger in this case.
+
+We investigate this effect with HOD galaxies extracted from the SkySim5000 simulation \citep{SkySim5000_HOD} \footnote{We used version: {\tt skysim5000\_v1.2}, as detailed in XYZ..}, which are obtained by [...] (mention the TXPipe paper).
+Specifically, we select objects over a patch of 732.20 deg$^2$ given by  0$<$RA$<$ 20 and -36.61$<$DEC$<$0, we apply a magnitude cut of mag$_r<$24.8, and further downsample randomly to retain 20\% of the galaxies, 
+therefore matching the global galaxy redshift distribution and number density found in the rest of this paper (Eq. \ref{eq:nz}).
+The sample is further split into five tomographic bins by using Charlie's magical code (Charlie), resulting in the $n(z)$ presented in Fig. \ref{fig:NzHOD}. 
+Compared to the analytical SRD-Y1 presented in Fig. \ref{fig:Nz}, the mean redshifts of the five tomographic bins are shifted by [-0.027, -0.018,  0.003, -0.010,  0.038], respectively.
+
+[{\it To put somewhere?: Since source clustering is a higher order effect in cosmic shear, the measured $\xi_{\pm}$ from these three mocks (random, $b_{\rm TA}=1.0$ and $b_{\rm TA}=2.0$) show negligible differences ({\it to quantify and cite}). 
+In contrast, the impact on the IA contamination is significant and can double the secondary signal in certain circumstances. 
+The main explanation for this is that while clustered sources are uncorrelated with the foreground matter responsible for the lensing signal, the high-density regions they live are also subject to the largest tidal fields. 
+}]
+
+
+\subsection{Validation with full inference}
+ \label{sec:inference}
+\begin{figure}
+%\includegraphics[width=\columnwidth]{graphs/triangle_nla_5D.pdf}
+\includegraphics[width=\columnwidth]{graphs/triangle_bta_sweep.pdf}
+\caption{Cosmological inference from the NLA-infused simulations, analysed the extended-NLA model. 
+The cross-hairs represent the truth as fixed in the {\it Outer Rim} $N$-body simulations \citep{OuterRim}.}
+\label{fig:triangle_nla}
+\end{figure}
+priors, {\sc CosmoSIS}, Takahashi $P(k)$, etc.
+
+\input{figures/corner_plots/corner_NLA_all}
+
+
+
+\begin{figure}
+%\includegraphics[width=\columnwidth]{graphs/triangle_nla_5D.pdf}
+\includegraphics[width=\columnwidth]{graphs/TT_allsweep.pdf}
+\caption{Cosmological inference from the TT-infused simulations, with all 3 IA params varied. The cross-hairs represent the truth as fixed in the {\it Outer Rim} $N$-body simulations \citep{OuterRim}.}
+\label{fig:triangle_tt_all_ia_params}
+\end{figure}
+
+\input{figures/corner_plots/corner_TT}
