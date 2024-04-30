@@ -4,35 +4,30 @@
 %----------
 
 Recent cosmic shear measurements from the Kilo Degree Survey\footnote{KiDS:kids.strw.leidenuniv.nl}, the Dark Energy Survey\footnote{DES:www.darkenergysurvey.org}, and the Hyper Suprime Camera Survey\footnote{HSC:www.naoj.org/Projects/HSC} have established weak gravitational lensing as a competitive probe of cosmology \citep[see. \eg][]{KiDS1000_Asgari, KiDS1000_vdB, KiDS1000_Li, DESY3_Secco, DESY3_Amon, HSCY3_Cl, HSCY3_2pcf}, achieving  percent-level measurements of the structure growth parameter $S_8\equiv\sigma_8\sqrt{\Omega_{\rm m}/0.3}$.
-The parameters $\Omega_{\rm m}$ and $\sigma_8$, which respectively describe the abundance and the fluctuations of the matter density fluctuations on scales of $8h^{-1}$ Mpc, are highly degenerate in the lensing signal, and additional data (\eg galaxy clustering data) are required to measure the two individually \citep{Heymans, DES3x2pt, HSC3x2} \niko{fix the refs}.
-Despite these highly successful achievements, the current precision of cosmic shear cosmology is mainly limited by the large uncertainty in the intrinsic alignment (IA) of galaxies, a secondary signal that tends to cancel some of the shape correlations produced by lensing \citep[see. \eg][for reviews on IA]{Troxel_IA_review_2015, Kirk_IA_review_2015, Joachimi_IA_review_2015, Kiessling_IA_review_2015}. 
-If unaccounted for, the IA can bias by XYZ$\sigma$ the inferred cosmological parameters \citep{BlazekKrause}.
-Additionally, using an inaccurate IA model can substantially impair the inference process, as demonstrated by \citet{DESY3_Secco} in their study on DES-Y3 analysis and by \citep{Paopiamsap2024} in the context of an LSST-like cosmic shear analysis.
+The parameters $\Omega_{\rm m}$ and $\sigma_8$, which respectively describe the abundance and the amplitude of the fluctuations in the matter density fluctuations on scales of $8h^{-1}$ Mpc, are highly degenerate in the lensing signal, and additional data (\eg galaxy clustering data) are required to measure the two individually from photometric galaxy surveys \citep{KiDS1000_Heymans, DESY3_3x2, HSCY3_3x2}.
+Despite these successful achievements, the current precision of cosmic shear cosmology is mainly limited by the large uncertainty in the intrinsic alignment (IA) of galaxies, a secondary signal that tends to cancel some of the shape correlations produced by lensing \citep[see. \eg][for reviews on IA]{Troxel_IA_review_2015, Kirk_IA_review_2015, Joachimi_IA_review_2015, Kiessling_IA_review_2015,Lamman_IA_guide}. 
+If unaccounted for, the IA can bias by 4-5$\sigma$ the inferred cosmological parameters \citep{Kirk2012, Krause2016}.
+Additionally, using an inaccurate IA model can substantially impair the inference process, as demonstrated by \citet{DESY3_Secco} in their study on DES-Y3 analysis and by \citet{Paopiamsap2024} in the context of an LSST-like cosmic shear analysis.
 %Furthermore, an incorrect IA model can also cause significant damage to the inference, as shown in \citet{DESY3_Secco} in the context of DES-Y3 analysis, or in \citep{Paopiamsap2024} in the context of an LSST-like cosmic shear analysis. 
 
-Different physical models have been developed to describe the origin and impact of the IA, including the linear non-linear alignment model \citep[NLA hereafter, ][]{BridleKing2007}, the density-weighted NLA (aka $\delta$-NLA or extended-NLA), and the tidal torque model \citep[][TT hereafter]{BlazekTATT2017}, which respectively assume a linear and quadratic coupling between galaxy ellipticities and the local tidal field. 
-The halo model can also describe the IA signal as a function of halo properties such as their mass, concentration, and shapes \citep{FortunaIA}.
-A number of observations have sought to place constraints on the parameters from these models \citep[\eg][]{Singh, Sammuroff, Christos, Fortuna, Johnston}.
-These observations seem to converge towards a strong colour-dependence: red bright galaxies (elliptical) are generally strongly aligned, with hints of a radial dependence, while blue galaxies (spiral) are consistent with the no-alignment scenario.
+Different physical models have been developed to describe the origin and impact of the IA, including the linear non-linear alignment model \citep[NLA hereafter, ][]{NLA}, the density-weighted NLA (aka $\delta$-NLA or extended-NLA), and the tidal torque model \citep[][TT hereafter]{TATT}, which respectively assume a linear and quadratic coupling between galaxy ellipticities and the local tidal field. 
+Alternatively, the halo model can also describe the IA signal as a function of halo properties such as their mass, concentration, and shapes \citep{Fortuna2020}.
+A number of observations have sought to place constraints on the parameters from these models \citep[\eg][]{BlueIA, Singh_IA_LOWZ, DESY1_IA_Samuroff, Johnston_IA} {(\it any more recent?)}.
+These observations seem to converge towards a strong colour-dependence: red bright galaxies (often elliptical) are generally strongly aligned, with hints of a radial dependence, while blue galaxies (typically spiral) are consistent with the no-alignment scenario.
 %A number of observations have sought to place constraints on the parameters from these models \citep[\eg][]{Singh, Sammuroff, Sammuroff, Christos, Fortuna, Johnston}, which seem to converge towards a strong colour-dependence (red bright galaxies are generally strongly aligned, with hints of a radial dependence), while blue galaxies are consistent with the no-alignment scenario.
 The selection effects play a crucial role, making it difficult to generalise these measurements to a different galaxy sample, therefore leaving behind a large uncertainty on the IA parameters.
 
 
-While most of these methods have been developed to provide prescriptions for modelling IA in lensing  two-point statistics, some have been used to infuse galaxy alignments directly into cosmological simulations, as in \citet{Fluri2019, Tidalator2D, MICE_IA, Borg, Lanzieri}. 
-Access to IA-infused numerical simulations is crucial for several applications:
-\begin{itemize}
-    \item \textit{Validating theoretical models deep in the non-linear regime or utilizing the non-linear galaxy bias model \citep{IA_gal_bias}}.
-    \item \textit{Predicting the impact of IA on non-Gaussian lensing probes, for which no models exist \citep{ZuercherXYZ, Tidalator2D}}.
-    \item \textit{Testing IA mitigation techniques \citep{IA_selfCalibration}}.
-    \item \textit{Exploring the connection between large dark matter haloes and IA \citep{vanAlfen}}.
-\end{itemize}
-%Having access to such IA-infused numerical simulations is crucial for a number of applications, including the possibility to validate theoretical models deep in the non-linear regime (or using the non-linear galaxy bias model) \citep{IA_gal_bias}, to predict the impact of IA on non-Gaussian lensing probes for which no model exist \citep{ZuercherXYZ, Tidalator2D}, to test IA mitigation techniques \citep{IA_selfCalibration}, or to learn about  the connection between large dark matter haloes and IA \citep{vanAlfen}. 
-{\JHD{ (Any other important references?)}}
+While most theoretical methods have been developed to provide prescriptions for modelling IA in two-point statistics, some have been applied to infuse galaxy alignments directly into cosmological simulations, as in \citet{Fluri2019, Tidalator2D, MICE_IA, Lanzieri2023, vanAlfen2023}. 
+Access to such IA-infused numerical simulations is crucial for several applications, including 
+validating theoretical models deep in the non-linear regime or utilising non-linear galaxy bias model \citep{IA_gal_bias}, 
+ predicting the impact of IA on non-Gaussian lensing probes ({\it i.e.} beyond-2pt statistics), for which no models exist \citep{Zuercher2020a, Tidalator2D},
+testing IA mitigation techniques such as self-calibration \citep[][Bera et al in prep.]{SelfCalibrationYao1, SelfCalibrationYao2, SelCalibrationPedersen} or exploring the connection between large dark matter haloes and IA \citep{vanAlfen2023}.
+{\JHD{ (Any other important references?)}} These are all important if we are to correctly interpret the cosmological data from photometric redshift surveys. 
 
-This paper addresses several of the above-mentioned applications \niko{shall we mention which ones?}.
-After reviewing the modelling and measurement of cosmic shear data in Sec. \ref{sec:theory}, we describe our new flexible method to infuse different IA models in cosmological simulations (Sec. \ref{sec:IA_th}). 
-Specifically, we infuse the NLA model, the \dNLA, and the TT model on the same underlying lensing simulation. 
-In addition, we introduce the \dTT model (which takes into account the fact that galaxies trace dark matter even in the TT model), then proceed to couple the cosmic tidal fields with galaxies taken from halo occupation distributions (HOD) to investigate the impact of realistic non-linear galaxy bias on the IA signal.
-These new models are both physically motivated and challenging to describe theoretically as they require perturbation expansions beyond the second order.  
-The full numerical implementation is described in Sec. \ref{sec:sims} and validated against theoretical predictions at the level of  two-point shear correlation functions in Sec. \ref{sec:validation}.
+This paper addresses several of the above-mentioned applications, as we present a novel  pipeline with which we infuse the NLAl, the \dNLA, and the TT model on the same underlying large lensing simulation. 
+In addition, we introduce the \dTT model (which takes into account the fact that galaxies trace dark matter even in the TT model), then proceed to couple the cosmic tidal fields with galaxies taken from halo occupation distributions (HOD), thereby probing the impact of realistic non-linear galaxy bias on the IA signal. These new models are both physically motivated and challenging to describe theoretically as they require perturbation expansions beyond the second order.  Existing  beyond-2pt analyses of weak lensing data only model the NLA model \citep{DESY3_Zuercher, HD21}, which is bound to be insufficient with the precision increase provided with the new generation of cosmic shear surveys such as those from the Vera Rubin Observatory \citep{LSST-Design} or {\it Euclid} \citep{RedBook}. 
+
+After reviewing the theory and measurement of cosmic shear data in Sec. \ref{sec:theory}, we describe our IA models in Sec. \ref{sec:IA_th}.  
+Their full numerical implementation is described in Sec. \ref{sec:sims} and validated against theoretical predictions at the level of  two-point shear correlation functions in Sec. \ref{sec:validation}.
 Since our infusion method acts on shear galaxy catalogues and on convergence maps, we are in an ideal position to quantify the impact of multiple IA models on different non-Gaussian statistics, which we report in Sec. \ref{sec:HOWLS}, before concluding in Sec. \ref{sec:conclusion}. 
