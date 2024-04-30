@@ -24,7 +24,7 @@ q^{i(j)}(\chi) = \frac{3}{2}\Omega_{\rm m} \, \bigg(\frac{H_0}{c} \bigg)^2 \frac
 \end{eqnarray}
 In the previous expression, $n^i(z)$ refers to the redshift distribution  in tomographic bins `$i (j)$', while $a(\chi)$ is the scale factor at co-moving distance $\chi$ from the observer.
 For more details, consult \citealt{Lamman_IA_guide}.
-The matter power spectrum is computed from  {\sc Halofit} \citep{Takahashi2012} in this work, however other public tools provide accurate predictions, including \eg  {\sc HMcode} \citep{HMCode2020}, the {\sc EuclidEmulator} \citep{EuclidEmulator}, the {\sc Bacco} emulator \citep{BACCOEmulator}, or the {\sc MiraTitan} emulator \citep{miraTitan}. 
+The matter power spectrum is computed from  {\sc Halofit} \citep{Takahashi2012} in this work, however other public tools provide accurate predictions, including \eg {\sc HMcode} \citep{HMCode2020}, the {\sc EuclidEmulator} \citep{EuclidEmulator}, the {\sc Bacco} emulator \citep{BACCOEmulator}, or the {\sc MiraTitan} emulator \citep{miraTitan}. 
 Predictions for the \gtwopcf are finally computed from Eq. (\ref{eq:C_ell}) as:
 \begin{eqnarray}
 \xi_{\pm}^{ij}(\theta) = \frac{1}{2\pi} \int_0^{\infty} C_{\ell}^{ij} \, J_{0/4}(\ell \theta) \, \ell \, {\rm d}\ell,
@@ -39,7 +39,7 @@ n (z) =  z^2 \: {\rm exp} \left[-\left(\frac{z}{z_0}\right)^\alpha \right]\, ,
 \end{eqnarray}
 with pivot redshift $z_0=0.13$ and a power-law index $\alpha = 0.78$.
 The distribution is normalised to provide a number density of $n_{\rm eff} = 3.0 $  galaxies per arcmin$^{2}$.
-This lower than the expected number density for the first data release ($n_{\rm eff}\sim10$ galaxies arcmin$^{-2}$), but is large enough to validate our methods, and makes the calculation more tractable.
+This is a bit lower than the expected number density for the first data release ($n_{\rm eff}\sim10$ galaxies arcmin$^{-2}$), but is large enough to validate our methods, and makes the calculation more tractable.
 This global $n(z)$ is further split into five equi-populated tomographic bins, and smoothed with a Gaussian filter of width $\sigma = 0.05 \: (1 + z)$ to mimic the photometric selection process, shown by the solid lines in Fig. \ref{fig:Nz}. 
 
 The weak lensing signal is measured from the ellipticities $\epsilon_{1/2}$ of simulated or observed galaxies, which, in absence of systematics and secondary signals, are unbiased estimators  of the cosmic shear components $\gamma_{1/2}$.
