@@ -77,9 +77,11 @@ The largest difference between the previous models and those based on HOD galaxi
 
 \subsection{Validation with full inference}
  \label{sec:inference}
+
  
  \input{tables/priors.tex}
  
+
 \input{figures/corner_plots/corner_NLA_all}
 \input{figures/corner_plots/corner_TT}
 \input{figures/corner_plots/corner_eNLA}
@@ -92,9 +94,11 @@ The largest difference between the previous models and those based on HOD galaxi
 
 With the precision of the Rubin data, small fluctuations in the data vectors can lead to significant shifts in the inferred cosmology, which is statistically  expected but makes the IA validation exercise more difficult to interpret. We therefore run our likelihood analyses on  the lowest three redshift bins, deliberately excluding the highest two as they contribute mostly to cosmological information, while we want here to learn more about the recovery of the IA sector. For the same reason we ignore shape noise here, which would only create additional scatter in the posteriors. We additionally exclude angular bins where the models probes highly non-linear scales, and select $\vartheta \in [2 ; 200]$ arcmin for $\xi_+$, and $\vartheta \in [20 ; 400]$ arcmin for $\xi_-$. These scales are highly affected by other systematic effects such as baryonic feedback \citep[see, e.g.][]{Semboloni11, HWVH15, 2020arXiv200715026H} and hence are often removed from the data vectors \citep[as in][]{DESY3_Amon}.
 
+
  The projected posteriors  are presented in Figs. \ref{fig:corner_nla_combo}-\ref{fig:corner_deltatt}, analysing simulated data from the six models introduced in Sec. \ref{sec:IA_th} model. In absence of IA contamination the inference from the simulated data is expected to yield posteriors on the cosmological parameters that are consistent with the input truth but not necessarily centred on it due to sample variance. We further dissect the analyses by varying either  one or  all three TATT parameters, highlighting some of the interesting degeneracies.   When analysing the NLA-infused data (Fig. \ref{fig:corner_nla_combo}), all cosmological and IA  parameters are accurately recovered, both for the NLA and TATT modelling. In the later case, the inferred values for $b_{\rm TA}$ and $C_2$ are consistent with zero, but we observe a strong degeneracy between  $A_{\rm IA}$ and  $C_2$ as also found in e.g. \citet[][\it  cite other papers?]{Paopiamsap2024}. 
 The inferred  $\Omega_{\rm m}$ is slightly shifted to higher values, however this is not surprising given that cosmic shear alone is generally not able to constrain this parameter. $S_8$, however,  is well recovered, slightly on the high side. As expected, opening up the full TATT parameter space slightly degrades the constrains on cosmology, but no large shifts are observed. The $w$CDM chains also show an excellent convergence, as shown with the pink contours. {\it [update colour, merge figures 11 and 16]}.
  
+
 
  We next analyse the TT data with the TATT model in Fig. \ref{fig:triangle_tt_combo}, and  observe an accurate recovery of  $\Omega_{\rm m}$ and $S_8$, however the IA sector is strongly affected by the [$A_{\rm IA}; C_2$] degeneracy, which  pulls the posterior towards the NLA model, with values of $C_2$ consistent with 0 and preferring $A_{\rm IA}\sim 0.5$. When fixing $A_{\rm IA}$ and $b_{\rm TA}$ to the input truth however, the inferred $C_2$ just undershoots the input, pointing to residual differences between our implementation of the TT model and that calculated by TATT. Nevertheless, the fact that the cosmology is well recovered is promising, since ommiting completely the IA modelling would yield to catastrophic biases in $\Omega_{\rm m}$ and $S_8$. 
 
