@@ -16,19 +16,23 @@ We finally position galaxies in the light cone following three distinct algorith
 \item {\it Random:} galaxies are distributed randomly on the octant, thereby reproducing one of the  fundamental assumptions in the NLA and TT models. 
 \item {\it Linear bias:} galaxy positions are sampled from the mass sheets smoothed\footnote{We also tried sampling the field with $0.1$ and $0.5$ $h^{-1}\mathrm{Mpc}$ but this resulted in noisier results.} with a 1.0 $h^{-1}\mathrm{Mpc}$ (comoving) beam, assuming a linear bias of $b_{\rm TA}$, thereby building the one of the key assumptions of the \dNLA and \dTT models. 
 We assume $b_{\rm TA}=1.0$ as our fiducial case but also consider $b_{\rm TA}=2.0$ to test  the  model flexibility. 
-\item{\it Non-linear bias:} galaxy positions are obtained by populating dark matter haloes with the Halo Occupation Distribution prescription described in \citet{cosmoDC2}. 
+\item{\it Non-linear bias:} galaxy positions are obtained by populating dark matter haloes with the Halo Occupation Distribution prescription described in \citet{cosmoDC2} and used recently in \citet{TXPipe}\footnote{We used version: {\tt skysim5000\_v1.2}.}. Specifically, we select objects over a patch of 732.20 deg$^2$ given by  0$<$RA$<$ 20 and -36.61$<$DEC$<$0, we apply a magnitude cut of mag$_r<$24.8, and further downsample randomly to retain 20\% of the galaxies, approaching the global galaxy redshift distribution and number density used with the other simulation catalogues (Eq. \ref{eq:nz}).
+The sample is further split into 5 tomographic bins by calculating the probability a given galaxy in the HOD sample lies in each bin, based on its true redshift. This is simply done by interpolating each of the tomographic $N(z)$ shown in Fig. 1 at the galaxy?s true redshift, then using these as weights to assign a tomographic bin in a random draw. After a galaxy is assigned, it is removed from the sample to avoid double counting. This method allows us to capture some of the effect of photo-z uncertainty, as it gives all galaxies a small but non-zero probability of being included in tomographic bins outside of their true redshifts. The resulting in the $n(z)$ presented in Fig. \ref{fig:Nz} with the dashed lines, closely matching the target $n(z)$. Compared to the analytical SRD-Y1, the mean redshifts of the five tomographic bins are shifted by [-0.027, -0.018,  0.003, -0.010,  0.038], respectively, which we take into account when making predictions for these HOD lensing mocks.
 \end{enumerate}
-Note that while cases (i) and (ii) exactly reproduce the SRD-Y1 $N(z)$ presented in Fig. \ref{fig:Nz} (solid lines), the $N(z)$ in the latter case is not a perfect match, as shown with the dashed lines, although the agreement is good enough for our goal; we return to this in Sec. \ref{subsec:HOD}, where we describe the HOD model and related quantities.  
+%Note that while cases (i) and (ii) exactly reproduce the SRD-Y1 $N(z)$ presented in Fig. \ref{fig:Nz} (solid lines), the $N(z)$ in the latter case is not a perfect match, as shown with the dashed lines, although the agreement is good enough for our goal; we return to this in Sec. \ref{subsec:HOD}, where we describe the HOD model and related quantities.  
 
 
 %----------
 \subsection{Projected tidal fields}
 \label{subsec:IA_sims}
 
-\begin{figure*}
-\caption{Density field and the associated projected tidal field tensors.}
+\begin{figure}
+\includegraphics[width=\columnwidth]{graphs/TidalFieldOuterRim_V0}
+\caption{Density field (top)  and the associated projected tidal field tensors $s_{11}$, $s_{22}$ and $s_{12}$, from left to right ({\it Improve this figure...}).}
 \label{fig:maps}
-\end{figure*}
+\end{figure}
+
+
 
 Our infusion method relies on couplings between intrinsic galaxy shapes and the local tidal field, hence the first step in our method consist in extracting the tidal field maps $s_{ij}(\theta,\phi)$ from the mass maps $\delta(\theta,\phi)$ that source them\footnote{Note that we have removed the redshift indexing of the maps here to simplify notation, {\it i.e.} $\delta_i(\theta,\phi) \rightarrow \delta(\theta,\phi)$.}.
 In three dimensions, trace-free tidal tensor $s_{ij}(\boldsymbol x)$ can be obtained from the matter over-density field $\delta(\boldsymbol x)$ as   \citep{Catelan_IA_Tidal}:
@@ -56,8 +60,8 @@ Finally, the full-sky density field is downgraded from $N_{\rm side}=8192$ to $N
 %are specified within the NLA model. Smoothing amounts to selecting physical scales that do not contribute to the alignment of galaxies, which is still a debatable quantity, but is also introduced for numerical stability. \citet{Blazek2015} argues that 1.0 $h^{-1}$Mpc could be a reasonable fiducial value, being larger then the typical halo size, but recognizes that one-halo terms are also required to better match the observations. In their later work, \citet{Blazek2019} do not include smoothing at all, and neither do the KiDS-1000 nor DES-Y1 analyses based on the NLA model \citep{KiDS1000_Asgari,DESY1_Troxel}. In this work we used a two-dimensional Gaussian filter and calibrated $\sigma_{\rm G}$ empirically to $\sigma_{\rm G}=0.1h^{-1}$Mpc (see Sec. \ref{subsubsec:sigma_G}), however these two choices are arbitrary and could possibly be better optimised in the future; we also explore $\sigma_{\rm G}=0.5h^{-1}$Mpc later on.  We note that the smoothing scale is degenerate with the resolution of the simulation itself, and that one should use caution when smoothing on scales that approach the resolution limits.
 
 %We employ a numerical technique worth mentioning here: the Fourier transforms involved in computing Eq. (\ref{eq:sij_2D}) are computed from the full (projected) periodic boxes of the simulations, then interpolated on the light-cones. We find that tidal field computed directly from the $10\times10$ deg$^2$ light-cones introduces significant large scales features in the tidal field maps, largely caused by  the non-periodic boundary conditions, which our method avoids.
-Projected tidal field maps $s_{11}$, $s_{22}$, and $s_{12}$ are constructed that way for each mass sheets; Fig. \ref{fig:maps} shows the  three tidal fields and the mass maps for one of them.
-We can clearly see the connection between all maps around over-dense regions. {\it (Include a figure of $s_{ij}$ and $\delta$)}. 
+Projected tidal field maps $s_{11}$, $s_{22}$, and $s_{12}$ are constructed that way for each mass sheets; Fig. \ref{fig:maps} shows the  three tidal fields and the underlying density maps for one of them.
+We can clearly see the connection between all maps around over-dense regions. . 
 
 
 %of every light-cones and interpolated at the position of every galaxy. Fig. \ref{fig:tidalator} illustrates this process for a small zoomed-in patch at $z\sim0$, starting from a $\delta_{2D}(\boldsymbol \theta)$ map (upper large panel), computing the tidal field components (middle four panels) and comparing the results with the cosmic shear signal generated by the same mass distribution (bottom two panels). The tidal field maps clearly reproduce the cosmic shear maps, and the minus sign in front of both terms in Eq. (\ref{eq:tidal_th}) causes the IA to undo some of the lensing signal.
