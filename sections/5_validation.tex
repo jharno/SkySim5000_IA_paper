@@ -1,58 +1,66 @@
 \section{Validation with $\xi_{\pm}$}
 \label{sec:validation}
 
-\input{tables/ia_models}
 
 
-%------------------------------
-\subsection{NLA model}
-\label{subsubsec:sigma_G}
-
-See Fig. \ref{fig:xi_NLA}
+This section presents a comparison between theoretical predictions and measurements in the simulations for all our 6 models. We include here the statistical error obtained from covariance matrix computed analytically as described in \citet{KiDS1000_Joachimi}, which includes contributions from the Gaussian, non-Gaussian and super-sample covariance terms, assuming survey properties that match our simulation in terms of area, shape noise, galaxy density, tomographic $n(z)$ and cosmology.   The diagonal elements are used to assign the error bars in our figures, and the full matrix is used in the MCMC analyses presented in Sec. \ref{sec:inference}.
 
 \input{figures/shear_corr_funcs/xi_nla}
 
+
+\subsection{Data vector}
 %------------------------------
-\subsection{Extended-NLA model}
-\label{subsec:deltaNLA}
+\subsubsection*{NLA model}
 
-See Fig. \ref{fig:xi_deltaNLA}.
+We start by presenting a comparison between the relative impact of IA in the NLA model as measured in the simulations and as modelled by {\sc cosmoSIS}. Specifically, we show in Fig. \ref{fig:xi_NLA} the ratio between the $\gamma$-2PCF with and without IA, for all combinations of tomographic bins as indicated in the panels, and for two smoothing scales. The agreement is remarkable over all scales except for the smallest angular separations in $\xi_-$, where deviations are weaker in the simulations due to limits in the resolution.  The grey bands  indicates scales that are not well modelled and should be avoided, set to 5 arcmin. The smaller smoothing scales shows better agreement with the model at the smallest angular scales. 
 
+
+%------------------------------
+\subsubsection*{Extended-NLA model}
 \input{figures/shear_corr_funcs/xi_delta_nla}
+
+\input{figures/shear_corr_funcs/xi_delta_nla_II.tex}
 
 \input{figures/shear_corr_funcs/xi_delta_nla_rescaled}
 
+The equivalent comparison for the extended-NLA model is presented in Fig. \ref{fig:xi_deltaNLA}, where we also find an excellent match with the theoretical predictions except for redshift bins 1-1 and 2-2, where the $II$ term is important and much larger in the simulations than in the theory. This is expected since the former includes additional terms that are up to second order in perturbation theory. This is shown in Fig. \ref{fig:xi_deltaNLA_II}, where the different contributions are separated, clearly showing the disagreement in  the $II$ term. 
 
-We verified that it works equally well for $b_{\rm TA}$ = 1.0 and 2.0.
+The results are shown here for $b_{\rm TA}$ = 1.0  and we verified that it works equally well for $b_{\rm TA}$ =  2.0. Using the former, we test the $b_{\rm TA}$-rescaling method introduced in Eq. \ref{eq:bta_rescale} to generate $b_{\rm TA}=2.0$ and $b_{\rm TA}=0.0$ mocks, and compare the outcome with mocks constructed directly with these bias values. Results are shown in Fig. \ref{fig:xi_deltaNLA_rescaled} for one of the tomographic bins for which IA has the strongest effect. The match is excellent here, however lower redshift are less accurate due to the increased shot noise (not shown){\it (should I show an example?)}, hence we recommend producing new mocks over using this rescaling method whenever possible. 
+
+Note that since source clustering is a higher order effect in cosmic shear, the measured $\xi_{\pm}$ from mocks with $b_{\rm TA}$=0.0, 1.0 and 2.0 show negligible differences in $\xi_+$, and becomes detectable only at the smallest scales  (i.e. $\vartheta<5$arcmin) in $\xi_-$, consistent with  \citet{source_lens_clustering} who find an effect of a few percent for $\ell>3000$, and with \citet{DESY3_Gatti_source_clust}, who find minor impact for second moments of aperture mass maps. However the impact on higher order lensing statistics and on the overall  IA contamination is significant and can double the secondary signal in certain circumstances, due to the up-sampling of regions with strong tidal forces. 
+
+\input{tables/ia_models}
+
+
+
 
 %------------------------------
 
-Using this, we $b_{\rm TA}$-rescale our $b_{\rm TA}=1.0$ mock to $b_{\rm TA}=2.0$ and to $0.0$ mocks. Results are shown in Fig. \ref{fig:xi_deltaNLA_rescaled} for one of the tomographic bin. 
-It works reasonably well, but lower redshift are less accurate due to the increased  shot noise (not shown), hence we do not recommend using this.
 
 %------------------------------
-\subsection{TT model}
+\subsubsection*{TT model}
 \label{subsec:TT}
 
-See Fig. \ref{fig:xi_TT}
+Results for the tidal torque model are presented in Fig. \ref{fig:xi_TT}, again for two smoothing scales. In this case, we see that the larger smoothing scales agrees better with the theoretical predictions, likely due a mis-matched caused by projection effects. Indeed, the TT model, being quadratic in the tidal field, is more sensitive to smaller scales \citep{TATT}, and the missing third dimension inherent to our method is more prone to cause inaccuracies. We observe discrepancies in the small angular separations for  $\xi_-$ at low redshifts, but achieve better match for $\vartheta>$  40 arcmin.
+
+Importantly, we found that our implementation of the TT model yields alignments that are too strong at low redshifts, and hence requires an empirical redshift-dependent calibration to improve the match with theory. We achieve this by rescaling $\epsilon^{\rm IA, TT}(z<0.5) \rightarrow \epsilon^{\rm IA, TT} /2.5$, acknowledging that this exhibits limits in our capacity to model the tidal torquing without accessing the third dimensional of the tidal field. 
 
 \input{figures/shear_corr_funcs/xi_tt}
 
 \input{figures/shear_corr_funcs/xi_delta_tt}
 
 
-To match the theory, we need to apply the following calibration: $\epsilon^{\rm IA, TT}(z<0.5) \rightarrow \epsilon^{\rm IA, TT} /2.5$.
 
 %------------------------------
-\subsection{Extended-TT model}
+\subsubsection*{Extended-TT model}
 \label{subsec:TT}
 
-See Fig. \ref{fig:xi_deltaTT}
+The extended-TT model, constructed by using the TT coupling on galaxies linearly tracing the underlying matter density, also needs to be calibrated. This has some degree of arbitrariness due to the absence of theoretical model to match it against. We choose to match the TT theory on large angular separation at all redshifts, physically motivated from the fact that this modified galaxy bias should not impact strongly scales that are much larger than galaxy clusters.
+This therefore required us to lower the original ellipticities, especially at low $z$: $\epsilon^{{\rm IA}, \delta{\rm TT}}(z<0.5) \rightarrow \epsilon^{{\rm IA}, \delta{\rm TT}} /2.5$ as for the normal TT model, further followed by a global $\epsilon^{{\rm IA}, \delta{\rm TT}} \rightarrow \epsilon^{{\rm IA}, \delta{\rm TT}}/20.0$ rescaling. This is a large calibration condition, which compensate for the overly strong coupling computed from our simulations. The results are shown in Fig. \ref{fig:xi_deltaTT}, where we observed that the deviations with respect to the TT model occur at small angular scales ($\vartheta < $ 20 arcmin) in $\xi_+$, and for the lowest redshifts. Although this model is harder to match with current theoretical IA model, it provides a good example with which we can study the impact of IA mis-modelling, e.g. analysing this model with the TATT predictions, similar to the investigations of \citet{Paopiamsap2024}.
 
-To match the TT theory, we need to apply the following calibration: $\epsilon^{\rm IA, TT}(z<0.5) \rightarrow \epsilon^{\rm IA, TT} /5.0$, followed by $\epsilon^{\rm IA, TT} \rightarrow \epsilon^{\rm IA, TT}/7.0$.
 
 %------------------------------
-\subsection{HOD-NLA model}
+\subsubsection*{HOD-TATT model}
 \label{subsec:HOD}
 
 
@@ -61,43 +69,41 @@ To match the TT theory, we need to apply the following calibration: $\epsilon^{\
 \input{figures/shear_corr_funcs/xi_hod_tt}
 
 
-The NLA and extended-NLA models respectively assume a null and a linear bias between the source galaxies and the underlying matter field, both of which are approximations to the galaxy dark matter connection.
-In fact, galaxies populate dark matter over-densities in a more complex manner \citep{GalaxyPopulationPapers}, which is better described by the Halo Occupation Distribution approach (HOD hereafter).
-The largest difference here is that these HOD galaxies are non-linear biased tracers of the matter distribution, which means that a larger number can populate regions of large over-densities, where the tidal fields are generally stronger. 
-We therefore expect the impact of IA to be stronger in this case.
+%The NLA and extended-NLA models respectively assume a null and a linear bias between the source galaxies and the underlying matter field, both of which are approximations to the galaxy-dark matter connection.
+%In fact, galaxies populate dark matter over-densities in a more complex manner \citep{GalaxyPopulationPapers}, which is better described by the Halo Occupation Distribution approach (HOD hereafter).
+The largest difference between the previous models and those based on HOD galaxies is that the latter are non-linear biased tracers of the matter distribution, which means that a larger number can populate regions of large over-densities, where the tidal fields are generally stronger. We therefore expect the impact of IA to be stronger in this case. We show in Figs. \ref{fig:xi_hod_nla} and \ref{fig:xi_hod_tt} show the results from the HOD-NLA  and HOD-TT models, which together make up our HOD-TATT. One of the most interesting features is that the HOD-NLA closely follows the normal NLA predictions over a large range of scales, suggesting that the impact of the non-linear galaxy bias is sub-dominant down to a few acrmin. We also observe a small-angle up-turn in bins 1-1 and 2-2, which can be attributed to mismodelling the $II$ term (as it is the case for the extended-NLA, see the discussion above) {\it (Also what's goiing on with bin 5? There seems to be no IA signal there...)}. 
 
-We investigate this effect with HOD galaxies extracted from the SkySim5000 simulation \citep{SkySim5000_HOD} \footnote{We used version: {\tt skysim5000\_v1.2}, as detailed in XYZ..}, which are obtained by [...] (mention the TXPipe paper).
-Specifically, we select objects over a patch of 732.20 deg$^2$ given by  0$<$RA$<$ 20 and -36.61$<$DEC$<$0, we apply a magnitude cut of mag$_r<$24.8, and further downsample randomly to retain 20\% of the galaxies, 
-therefore matching the global galaxy redshift distribution and number density found in the rest of this paper (Eq. \ref{eq:nz}).
-The sample is further split into five tomographic bins by using Charlie's magical code (Charlie), resulting in the $n(z)$ presented in Fig. \ref{fig:NzHOD}. 
-Compared to the analytical SRD-Y1 presented in Fig. \ref{fig:Nz}, the mean redshifts of the five tomographic bins are shifted by [-0.027, -0.018,  0.003, -0.010,  0.038], respectively.
-
-[{\it To put somewhere?: Since source clustering is a higher order effect in cosmic shear, the measured $\xi_{\pm}$ from these three mocks (random, $b_{\rm TA}=1.0$ and $b_{\rm TA}=2.0$) show negligible differences ({\it to quantify and cite}). 
-In contrast, the impact on the IA contamination is significant and can double the secondary signal in certain circumstances. 
-The main explanation for this is that while clustered sources are uncorrelated with the foreground matter responsible for the lensing signal, the high-density regions they live are also subject to the largest tidal fields. 
-}]
 
 
 \subsection{Validation with full inference}
  \label{sec:inference}
-\begin{figure}
-%\includegraphics[width=\columnwidth]{graphs/triangle_nla_5D.pdf}
-\includegraphics[width=\columnwidth]{graphs/triangle_bta_sweep.pdf}
-\caption{Cosmological inference from the NLA-infused simulations, analysed the extended-NLA model. 
-The cross-hairs represent the truth as fixed in the {\it Outer Rim} $N$-body simulations \citep{OuterRim}.}
-\label{fig:triangle_nla}
-\end{figure}
-priors, {\sc CosmoSIS}, Takahashi $P(k)$, etc.
-
+ 
+ \input{tables/priors.tex}
+ 
 \input{figures/corner_plots/corner_NLA_all}
-
-
-
-\begin{figure}
-%\includegraphics[width=\columnwidth]{graphs/triangle_nla_5D.pdf}
-\includegraphics[width=\columnwidth]{graphs/TT_allsweep.pdf}
-\caption{Cosmological inference from the TT-infused simulations, with all 3 IA params varied. The cross-hairs represent the truth as fixed in the {\it Outer Rim} $N$-body simulations \citep{OuterRim}.}
-\label{fig:triangle_tt_all_ia_params}
-\end{figure}
-
 \input{figures/corner_plots/corner_TT}
+\input{figures/corner_plots/corner_eNLA}
+\input{figures/corner_plots/corner_deltaTT}
+\input{figures/corner_plots/corner_HOD_NLA}
+ \input{figures/corner_plots/corner_NLA_w0}
+
+ 
+ The last section presented comparisons between measured and modelled signal, reaching generally an excellent agreement but highlighting some small differences. In order to quantify the importance of such differences in a cosmic shear analysis, our evaluation metric must be measurements of biases between the true and the inferred cosmological parameter. We achieve this by running nested likelihood sampling chains with {\sc multinest} \citep{Multinest}, which returns the posterior distributions $\mathcal{P}$ on the cosmological parameters $\boldsymbol \pi$ given a data vector $\boldsymbol  d$, a model vector $\boldsymbol m$, a covariance matrix C, and likelihood function $\mathcal L$ and a set of priors on the inferred parameters.  More precisely, we use a multivariate Gaussian likelihood, and ignore the standard cosmic shear systematic effects caused by photometric redshift errors, shape calibrations or baryon feedback \citep[see][for a recent example]{DESY3-KiDS1000}. We vary a subset of the vanilla $\Lambda$CDM cosmological parameters to establish the general accuracy; increasing the number of varied parameters can lead to a number of projection effects that complicate the interpretation. We therefore focus on varying the parameters best measured by lensing, namely $S_8$, $\Omega_{\rm m}$ and the IA parameters ($A_{\rm IA}, b_{\rm TA}, C_2$). We adopt wide flat priors for all of these, as detailed in Table \ref{table:priors}. 
+
+With the precision of the Rubin data, small fluctuations in the data vectors can lead to significant shifts in the inferred cosmology, which is statistically  expected but makes the IA validation exercise more difficult to interpret. We therefore run our likelihood analyses on  the lowest three redshift bins, deliberately excluding the highest two as they contribute mostly to cosmological information, while we want here to learn more about the recovery of the IA sector. For the same reason we ignore shape noise here, which would only create additional scatter in the posteriors. We additionally exclude angular bins where the models probes highly non-linear scales, and select $\vartheta \in [2 ; 200]$ arcmin for $\xi_+$, and $\vartheta \in [20 ; 400]$ arcmin for $\xi_-$. These scales are highly affected by other systematic effects such as baryonic feedback \citep[see, e.g.][]{Semboloni11, HWVH15, 2020arXiv200715026H} and hence are often removed from the data vectors \citep[as in][]{DESY3_Amon}.
+
+ The projected posteriors  are presented in Figs. \ref{fig:corner_nla_combo}-\ref{fig:corner_deltatt}, analysing simulated data from the six models introduced in Sec. \ref{sec:IA_th} model. In absence of IA contamination the inference from the simulated data is expected to yield posteriors on the cosmological parameters that are consistent with the input truth but not necessarily centred on it due to sample variance. We further dissect the analyses by varying either  one or  all three TATT parameters, highlighting some of the interesting degeneracies.   When analysing the NLA-infused data (Fig. \ref{fig:corner_nla_combo}), all cosmological and IA  parameters are accurately recovered, both for the NLA and TATT modelling. In the later case, the inferred values for $b_{\rm TA}$ and $C_2$ are consistent with zero, but we observe a strong degeneracy between  $A_{\rm IA}$ and  $C_2$ as also found in e.g. \citet[][\it  cite other papers?]{Paopiamsap2024}. 
+The inferred  $\Omega_{\rm m}$ is slightly shifted to higher values, however this is not surprising given that cosmic shear alone is generally not able to constrain this parameter. $S_8$, however,  is well recovered, slightly on the high side. As expected, opening up the full TATT parameter space slightly degrades the constrains on cosmology, but no large shifts are observed. The $w$CDM chains also show an excellent convergence, as shown with the pink contours. {\it [update colour, merge figures 11 and 16]}.
+ 
+
+ We next analyse the TT data with the TATT model in Fig. \ref{fig:triangle_tt_combo}, and  observe an accurate recovery of  $\Omega_{\rm m}$ and $S_8$, however the IA sector is strongly affected by the [$A_{\rm IA}; C_2$] degeneracy, which  pulls the posterior towards the NLA model, with values of $C_2$ consistent with 0 and preferring $A_{\rm IA}\sim 0.5$. When fixing $A_{\rm IA}$ and $b_{\rm TA}$ to the input truth however, the inferred $C_2$ just undershoots the input, pointing to residual differences between our implementation of the TT model and that calculated by TATT. Nevertheless, the fact that the cosmology is well recovered is promising, since ommiting completely the IA modelling would yield to catastrophic biases in $\Omega_{\rm m}$ and $S_8$. 
+
+
+ As explained above, the extended NLA model infused in our simulations is not entirely well captured by the {\sc CosmoSIS} implementation, especially the $II$ term for the lowest redshift bins. This causes problems when inferring parameters with  {\sc CosmoSIS}, since the predictions attempt to compensate the difference in the IA model, leading to biases in the other parameters. Fig. \ref{fig:triangle_deltaNLA_combo} shows exactly this, failing to infer correctly most parameters. In this particular case,  $\Omega_{\rm m}$ and $S_8$ are only off by $2\sigma$, $A_{\rm IA}$ and $C_2$ are biased by 4-5$\sigma$, however $b_{\rm TA}$ is within 1$\sigma$. The $\delta$-TT model is even more affected by mis-modelling, with a 3$\sigma$ shift in both $\Omega_{\rm m}$ and $S_8$, as seen in Fig. \ref{fig:corner_deltatt}.
+ 
+The infusion with the HOD-NLA model shows much larger deviations, largely driven by the sharp upward turn observed in auto-correlation at low redshifts, which also caused biases on the extended NLA. This causes biases of 2-3$\sigma$ in the cosmological parameters, notably lower $S_8$. In other works, if the  real world IA model was the extended-NLA or HOD-NLA and that we'd analyse it with the {\it cosmoSIS} implementation of  NLA or TATT, this would significantly contribute toward the existing $S_8$ tension \citep{S8tension}, in the same direction currently observed (i.e. late-time probes observe a lower $S_8$ value compared to CMB probes). We are careful here not to claim that this is the single cause of the current tension, but clear mis-model in the IA sector could contribute significantly. We do not include inference of the HOD-TT here since the level of mismatch is even worst.
+  
+ To summarise this section, aside from the NLA and TT, the infused IA models include terms that are different from the theory and hence lead to significant biases both in the cosmology and IA parameters.  
+% We also show in Fig. \ref{fig:corner_nla_w0} the impact of promoting our $\Lambda$CDM inference to a $w$CDM inference, varying the dark energy  equation-of-state parameter $w$ in the range $[-2; -0.3]$. 
+ These tests complete our validation of the IA-infusion pipeline, and we now look in the next section at the impact of IA on the weak lensing higher-order statistics mentioned in Sec. \ref{subsec:beyond-2pt}.
+ 

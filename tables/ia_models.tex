@@ -2,20 +2,22 @@
 \begin{table}
    \centering
    %\topcaption{Table captions are better up top} % requires the topcapt package
-    \caption{IA models infused in this work and the respective fiducial values of the model parameters.}
+    \caption{IA models infused in this work, along with the respective values of the model parameters. The two HOD models, at the bottom of the table, follow a non-linear galaxy biasing, which we label here as $b_{\rm nl}$ and is partly fitted by the $b_{\rm TA}$ parameter in the MCMC, see Sec. \ref{sec:inference} for details. }
    \begin{tabular}{@{} lcr @{}} % Column formatting, @{} suppresses leading/trailing space
       \hline
       \hline
        %\multicolumn{2}{c}{Item} \\
-      model   		& ($A_{\rm IA}, \: b_{\rm TA}, \: A_2)$ \\
+      model   		& ($A_{\rm IA}, \: b_{\rm TA}, \: C_2)$ \\
       \hline
-      NLA     		& {($\pm$1, 0, 0) }&  \\
-      \multirow{2}{*}{extended-NLA }  	&   {($\pm$1, 1, 0)}   \\
+      NLA     		& {(1, 0, 0) }&  \\
+      \multirow{2}{*}{extended-NLA }  	&   {(1, 1, 0)}   \\
       							&  {(1, 2, 0)}   \\
-      TT 			&  {(0, 0, $\pm$1)} &  \\
-      \multirow{2}{*}{extended-TT} 	&  {(0, 1 ,$\pm$1)}   \\
+      TT 			&  {(0, 0, 1)} &  \\
+      \multirow{2}{*}{extended-TT} 	&  {(0, 1 ,1)}   \\
       				&  {(0, 2, 1)}   \\
-      TATT- fiducial	&  { (1, 1, 1)}  \\
+				HOD-NLA & {(1, $b_{\rm nl}$, 0)} \\
+				HOD-TT & {(0, $b_{\rm nl}$, 1)} \\
+      %TATT- fiducial	&  { (1, 1, 1)}  \\
       %TATT-DESY3	&   (-0.7,1,1.9) & \\
       \hline
       \hline
