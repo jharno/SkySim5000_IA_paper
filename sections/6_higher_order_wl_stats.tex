@@ -2,24 +2,37 @@
 \label{sec:HOWLS}
 
 \begin{figure*}
-\includegraphics[width=2.7in]{graphs/Map3_IA}
-\includegraphics[width=2.7in]{graphs/PDF_IA}
-\caption{Impact of IA on the $M_{\rm ap}^3$ (left) and lensing PDF (right) statistics (see Sec. \ref{subsec:beyond-2pt}), for different combinations of smoothing scales $\vartheta$ and IA models. The three panels are, from top to bottom, showing the results from tomographic bins 1 to 3, respectively. ({\it This is huge and wrong! Must redo with new maps.})}
+\includegraphics[width=1.75in]{graphs/Map3_IA}
+\includegraphics[width=3.5in]{graphs/PDF_IA}
+\caption{Relative impact of IA on the $M_{\rm ap}^3$ (left) and lensing PDF (right) statistics (see Sec. \ref{subsec:beyond-2pt}), for different  IA models. The three panels are showing the results for three combinations of tomographic bins, as labelled near the top. The $y$-axes show the fractional error, defined as $d_{\rm IA}/d_{\rm noIA} -1$ where $d$ is an element of the data vectors measured.}
 \label{fig:Map3_IA}
 \end{figure*}
 
 \begin{figure*}
-\includegraphics[width=1.65in]{graphs/Peaks_IA}
-\includegraphics[width=3.3in]{graphs/i3PCF}
-\caption{Impact of different IA models on the peak statistic (left) and on the integrated three-point shear statistics $\zeta_+$ (centre) and $\zeta_-$ (right).}
+\includegraphics[width=3.5in]{graphs/Peaks_IA}
+\includegraphics[width=3.5in]{graphs/i3PCF}
+\caption{Impact of different IA models on the peak statistic (left) and on the integrated three-point shear statistics $\zeta_-$ (centre) and $\zeta_+$ (right). We show the full signal for the latter two (as opposed to the relative impact) and the error bars represent the $1\sigma$ standard deviation as measured from the scatter between the different aperture regions when computing $\langle \zeta_\pm \rangle$ \citep[see][for more details]{i3PCF}. In this case, they include sample variance but not the shape noise contribution, which would further increase their sizes.}
 \label{fig:I3PCF}
 \end{figure*}
 
 
-This Section presents the impact of different IA model presented in Table \ref{table:IAmodels} on the measurements from higher-order weak lensing statistics introduced in Sec. \ref{subsec:beyond-2pt}. We focus on the relative impact on the data vector, but this could easily be extended to compute the derivatives with respect to the different IA parameters $[A_{\rm IA}, b_{\rm TA}, C_2]$, which can then be used in Fisher forecasts or for forward-modelling the effect directly inside  a likelihood analysis  as in e.g. \citet{DESY1_Heydenreich, KiDS1000_Burger, KiDS1000_JHD}. This method assumes that the data vector can be Taylor expanded to first order about the systematic parameters  
-\begin{eqnarray}
-f(A_{\rm IA},b_{\rm TA},C_2) = f({\rm no-IA}) +  \sum_p \frac{{\rm d}f}{{\rm d}p}\times p \, ,
-\end{eqnarray}
-with $ p=[A_{\rm IA}, b_{\rm TA}, C_2]$ and $f$ any weak lensing statistics. This is of course  neglecting higher-order correlations between parameters, or variations with cosmology, but that is often a good approximation. 
+This section presents the impact of different IA model listed  in Table \ref{table:IAmodels} on the measurements from higher-order weak lensing statistics introduced in Sec. \ref{subsec:beyond-2pt}.  At the same time, we compare results between the mocks sampled with linear bias and those populated with uniform random positions to study the impact of source clustering  (SC) on these statistics.
 
-Fig. \ref{fig:Map3_IA} shows the results for the $M_{\rm ap}^3$  and lensing PDF  statistics, where we can see that the impact is the largest at low redshift. Specifically, the different models do not impact the probes at the same level. For instance, ...
+Fig. \ref{fig:Map3_IA} (left) shows the relative  bias caused by IA and SC for the $M_{\rm ap}^3$ statistics for the three lowest redshift bins (auto-bins only).  We can see that the impact of both IA and SC is the largest at low redshift, where SC alters $M_{\rm ap}^3$ by about 10\%, while it reduces to a few percent at higher redshifts. The NLA and TT affect the statistics at the level of 50\% in the lowest redshift bin, but below 5\% elsewhere. These two models behave similarly and will be difficult to differentiate with this statistics. Note that the cross-bins, not shown here, are heavily affected as well by IA. The $\delta$-NLA model has the most impact here, especially for the lowest smoothing scales, where the $III$ signal is strong in our model and maximally affects small physical scales. 
+
+The right panels of Fig. \ref{fig:Map3_IA}  show similar calculations, this time for the lensing PDF. The results are similar, with SC impacting the signal at the 20\% level for the lowest redshift bin, and at the 5\% level otherwise. The NLA and TT signals are more different than for the $M_{\rm ap}^3$ statistics, suggesting that the lensing PDF is better suited to differentiate these and constrain the IA sector. Once again, the largest impact comes from the $\delta$-NLA model, at low redshift, reaching at times 100\% suppression of the cosmic shear signal. Note that these measurements are carried on noise-free maps; including shape noise would effectively widens the variance of these distributions \citep{LensingPDF}, significantly diluting the impact. 
+{\it [noisy maps to do?]}
+
+The left of Fig. \ref{fig:I3PCF} presents results from the peak statistics, where we see that the SC term plays a negligible role, consistent with \citet{DESY3_Gatti_source_clust}. The NLA model tends to lower the number of strong negative and positive peaks in favour of those with $\mathcal{S/N}\sim 0$, as found previously in \citet{Tidalator}. The $\delta$-NLA model acts similarly, although the relative signature is shifted towards slightly larger $\mathcal{S/N}\sim 0$ values, due to its increased sensitivity to high-density regions (arising from the $\delta$-weighting), which are highly contaminated by IA. Meanwhile, the TT model is distinct, increasing by 10-20\% the number of positive peaks of all  $\mathcal{S/N}$ values. This will likely be strongly degenerate with cosmology, an investigation that we leave for future work.
+
+
+
+Finally, the middle and right-most columns of Fig. \ref{fig:I3PCF} show the impact on the integrated 3pt functions $\zeta_\pm(\vartheta)$. The SC term is important at low redshift, and exceeds the sampling variance by more than $1\sigma$ for $\zeta_+$ in the first bin. Higher redshifts are less affected by this, with relative impact of a few percent only.  The impact of IA at low redshift is stronger than for the other probes investigated in this work, erasing most of the $\zeta_-$ signal. The $\delta$-NLA model has the strongest impact, followed by the NLA then TT.   {\it [Add bins 113 and/or 133, 155, 115, 335, 355].}
+
+In all cases, neglecting IA and SC in the model  produces large biases in all non-Gaussian weak lensing statistics, with the most serious effect seen on measurements including the lower redshift bin. Such effects will inevitably lead to potentially dangerous biases in cosmological inference analyses if unaccounted for, which we will investigate in the future.
+
+Note that we focus here on the relative impact  of IA on the data vectors, but our methods could easily be extended to compute the derivatives with respect to the different IA parameters $[A_{\rm IA}, b_{\rm TA}, C_2]$, which can then be used in Fisher forecasts or for forward-modelling the effect directly inside  a likelihood analysis  as in e.g. \citet{DESY1_Heydenreich, KiDS1000_Burger, KiDS1000_JHD}. %The latter case assumes that a systematics-contaminated data vector $f$ can be Taylor-expanded to first order about the systematic-free case, independently for each IA parameter:  
+%\begin{eqnarray}
+%f(A_{\rm IA},b_{\rm TA},C_2) = f({\rm no-IA}) +  \sum_p \frac{{\rm d}f}{{\rm d}p}\times p \, ,
+%\end{eqnarray}
+%with $ p=[A_{\rm IA}, b_{\rm TA}, C_2]$ and $f$ any weak lensing statistics. This is of course  neglecting higher-order correlations between nuisance parameters, or variations of the IA signal with cosmology, but it is nevertheless a good starting point for forward modelling systematics.

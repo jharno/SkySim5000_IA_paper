@@ -93,12 +93,11 @@ A number of higher-order statistics work at the level of shear catalogue,  and h
 
 In addition to the probes mentioned above, we further consider the following convergence map-based statistics:
 \begin{enumerate}
-    \item \textit{Convergence three-point correlation function}: \JHD{Alejandro, can you summarise the measurements and modelling, and provide references?}
+    %\item \textit{Convergence three-point correlation function}: \JHD{Alejandro, can you summarise the measurements and modelling, and provide references?}
     \item \textit{Peaks and Minima}: Local maxima and minima in the {\sc Healpix} convergence maps are counted in bins of signal-to-noise ratios, $\nu$, computed from the global  noise levels in the survey. Specifically, pure noise maps $\mathcal{N}$ are constructed from generating pure Gaussian maps with mean set to zero and variance set to $\sigma^2 =  \sigma_\epsilon^2 / (2 \Delta \Omega_{\rm pix} n_{\rm gal})$. Here, $\Delta \Omega_{\rm pix}$ is the average pixel area, $n_{\rm gal}$ is the mean galaxy density in our survey (0.6 gal / arcmin$^2$ per tomographic bin)  and $\sigma_\epsilon$ is the intrinsic dispersion in galaxy shapes, per component, which we set to 0.27.
    Peak count statistics are amongst the most widely used non-Gaussian lensing statistics, as it is simple to measure yet highly sensitive to non-Gaussian structures.
     Although some theoretical models have been developed to describe the largest peaks \citep[see][]{Shan18, HSCY1_Peaks_th}, we report here the results on a much wider range of statistics, which can only be accurately modelled from numerical simulations themselves.
-    \item \textit{Lensing PDF}:  \JHD{Cora/Lina, can you summarise the measurements and modelling, and provide references? Cite \citet{LensingPDF}}
-   % \item  \textit{Minkowski functionals}: \JHD{Nisha, can you summarise the measurements and modelling, and provide references?}
+    \item \textit{Lensing PDF}: The lensing one-point function, also referred to as the $\kappa$-PDF, can be computed directly from the histogram of the pixel values of a lensing map, and can further be modelled by large deviation theory, as recently shown in  \citet{LensingPDF}. The modelling is accurate provided that the map is smoothed to erase the highly non-linear structures; we use a top-hat beam of  1 arcmin to achieve this, although this is not strictly required if one is willing to replace the analytical modelling by a simulation-based inference model, as shown in \citet{Giblin_PDF}. 
 \end{enumerate}
 
 These non-Gaussian statistics explore various physical scales and non-linear phenomena, leading to differences in their sensitivity to cosmology and systematic errors.
