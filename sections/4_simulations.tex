@@ -6,7 +6,7 @@
 \label{subsec:WL_cats}
 
 The weak lensing simulations developed for this work are based on  the {\it Outer Rim} $N$-body simulation \citep{OuterRim}, which evolved 10,240$^3$ particles in a $(4.225 \mathrm{Gpc})^3$ cosmological volume, assuming a flat \lcdm cosmology with $\Omega_{\rm m}=0.2648$, $\Omega_{\rm b}=0.0448$, $h=0.71$, $\sigma_8 = 0.801$, $n_{\rm s}= 0.963$, $w_0=-1.00$.
-A total of $101$ particle snapshots were originally saved, of which we use only those with $z<3.0$. Particles from each dump are assigned to curved mass shells approximately 114 Mpc thick, producing a sequence of 57 {\sc Healpix} maps $\delta_i(\theta, \phi)$ with {\sc nside} = 8192 and $i=1...57$, filling up a light-cone over an octant up to $z = 3$.
+A total of $101$ particle snapshots were originally saved, of which we use only those with $z<3.0$. Particles from each snapshot are assigned to curved mass shells approximately 114 Mpc thick, producing a sequence of 57 {\sc Healpix} maps $\delta_i(\theta, \phi)$ with {\sc nside} = 8192 and $i=1...57$, filling up a light-cone over an octant up to $z = 3$ with an angular resolution of 0.4 arcmin.
 %More details on this procedure can be found  in \citet{cosmoDC}, where lensing quantities are computed specifically for the generation of the {\sc cosmoDC2}  synthetic sky catalogue.
 
 Ray-tracing is performed in the Born approximation, summing over the mass shells using a $\chi$-integral similar to Eq. (\ref{eq:C_ell}), but with only one power of $(q^i/\chi)$ instead of two, and replacing $P_\delta$ with $\delta_i(\theta,\phi)$.

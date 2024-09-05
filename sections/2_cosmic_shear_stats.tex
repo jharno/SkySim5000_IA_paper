@@ -17,12 +17,12 @@ In the Limber approximation\footnote{See \citet{Kilbinger17} for a comparison be
 C_{\ell}^{ij} = \int_0^{\chi_{\rm H}}  \frac{q^i(\chi) \,q^j(\chi)}{\chi^2} \, P_{\delta}\, \bigg(\frac{\ell+1/2}{\chi},z(\chi)\bigg) \ {\rm d}\chi,
 \label{eq:C_ell}
 \end{eqnarray}
-where $\ell$ are angular multipoles, $k$ are amplitudes of Fourier modes, $\chi_{\rm H}$ is the comoving distance to the horizon, $c$ is the speed of light, $H_0$ the Hubble parameter, and the lensing kernels $q^{i}$ and $q^j$ are given by:
+where $\ell$ are angular multipoles, $k$ are amplitudes of Fourier modes, $\chi_{\rm H}$ is the comoving distance to the horizon and the lensing kernels $q^{i}$ and $q^j$ are given by:
 \begin{eqnarray}
 q^{i}(\chi) = \frac{3}{2}\Omega_{\rm m} \, \bigg(\frac{H_0}{c} \bigg)^2 \frac{\chi}{a(\chi)} \int_{\chi}^{\chi_{\rm H}} n^i(\chi')\frac{{\rm d}z}{{\rm d} \chi'}\frac{\chi' - \chi}{\chi'}{\rm d}\chi' \, .
 \label{eq:q_lensing}
 \end{eqnarray}
-In the previous expression, $n^i(z)$ refers to the redshift distribution  in tomographic bins `$i$', while $a(\chi)$ is the scale factor at comoving distance $\chi$ from the observer.
+In the previous expression, $c$ is the speed of light, $H_0$ the Hubble parameter, $n^i(z)$ refers to the redshift distribution  in tomographic bins `$i$', while $a(\chi)$ is the scale factor at comoving distance $\chi$ from the observer.
 The matter power spectrum is computed from  {\sc Halofit} \citep{Takahashi2012} in this work, however other public tools provide accurate predictions, including \eg  {\sc HMcode} \citep{HMCode2020}, the {\sc EuclidEmulator} \citep{EuclidEmulator}, the {\sc Bacco} emulator \citep{BACCOEmulator}, or the {\sc MiraTitan} emulator \citep{miraTitan}. 
 Predictions for the \gtwopcf are finally computed from Eq. (\ref{eq:C_ell}) as:
 \begin{eqnarray}
@@ -59,7 +59,7 @@ We set therein the {\sc bin\_slop} parameter to 0.05, then compute the correlati
 \label{subsec:beyond-2pt}
 
 Non-Gaussian statistics have the potential to extract cosmological information stored in the complex phases of the density field, outperforming in that sense the \gtwopcf that can only access information encoded in the complex amplitudes \citep{2002MNRAS.337..488C}.
-No optimal estimator has been identified to-date as being able to capture `all' information, but numerous studies all show a clear gain in constraining power, especially when used in combination with two-point functions \citep{Fu2014, Gruen2017, HD21, DESY3_Zuercher, HSCY1_peaks_sims, KiDS1000_Burger, KiDS1000_Map3}.
+No optimal estimator has been identified to-date as being able to capture `all' information, but numerous studies all show a clear gain in constraining power, especially when used in combination with two-point functions \citep{Fu2014, Gruen2017, HD21, DESY3_Zuercher, HSCY1_peaks_sims, KiDS1000_Burger, KiDS1000_Map3, HOWLS_paper1}.
 While some of these act on galaxy catalogues directly, many non-Gaussian statistics are measured on convergence or aperture mass maps, requiring to post-process the galaxy catalogues with a mass-reconstruction algorithm.
 To accommodate a variety of cases, we therefore provide both galaxy catalogues and convergence maps, the latter being  produced from the galaxies' observed ellipticities with the standard Kaiser \& Squires (KS)  inversion technique \citep{KaiserSquires}, which relates the shear and convergence to the Newtonian potential. This is achieved by assigning the two ellipticity components of every galaxies on spherical {\sc Healpix}\footnote{{\sc Healpix}: http://healpix.sf.net}  maps \citep{healpix} with $N_{\rm side}=4096$, then converting the shear maps to convergence maps by solving  the KS inversion in spherical harmonic space \citep[][see their equation 10]{Gatti20}:
 \begin{eqnarray}
@@ -75,7 +75,9 @@ For this reason, many analyses opt for modelling directly from simulations \cite
 In the interest of brevity, this paper does not cover statistics derived from aperture mass maps, though our methods are equally applicable to those estimators.
 %We do not discuss statistics based on aperture mass maps in this paper for the sake of conciseness, but all our methods can be applied to those estimators as well.
 Finally, while tomographic \gtwopcf data include auto-correlation and cross-redshift correlations, certain non-Gaussian statistics extract further information from analysing triplets, quadruplets, or quintuplets of redshift bins \citep{Martinet20}.
-This work focuses only on auto-tomographic bins, yet our methods and results can be straightforwardly extended to include these higher-order redshift combinations.
+This work focuses only on auto-tomographic bins and bin pairs, yet our methods and results can be straightforwardly extended to include these higher-order redshift combinations.
+
+%\Cora{[Mention Euclid HOWLS paper somewhere?]}
 
 %Whereas tomographic \gtwopcf data consists of auto-correlation and cross-redshift correlations, some non-Gaussian statistics can learn additional information from analysing catalogues or maps constructed from triplets, quadruplets or quintuplet of redshift bins \citep{Martinet21a}. 
 %We do not fully exploit this possibility here and consider auto-tomographic bin only, nevertheless all of our methods and findings can be easily generalised to include this. 
@@ -85,7 +87,7 @@ This work focuses only on auto-tomographic bins, yet our methods and results can
 
 A number of higher-order statistics work at the level of shear catalogue,  and here we consider the following:
 \begin{enumerate}
-\item {\it Three-point correlation functions (or $M_{\rm ap}^3(\vartheta)$)}:  \JHD{Lucas/Laila, can you summarise the measurements and modelling, and provide references?}
+
 \item {\it Squeezed bispectrum}: \JHD{ Anik, can you summarise the measurements and modelling, and provide references?}
 \end{enumerate}
 
@@ -94,10 +96,12 @@ A number of higher-order statistics work at the level of shear catalogue,  and h
 In addition to the probes mentioned above, we further consider the following convergence map-based statistics:
 \begin{enumerate}
     %\item \textit{Convergence three-point correlation function}: \JHD{Alejandro, can you summarise the measurements and modelling, and provide references?}
+    \item {\it Third-order aperture mass}:  \JHD{Lucas/Laila, can you summarise the measurements and modelling, and provide references?}
+    The third-order aperture mass statistics, $M_{\rm ap}^3$, describes the third moment of the convergence field, smoothed by a compensated filter function \citep{Schneider1998}. For our analysis we choose the exponential filter from \citep{Crittenden2002}. For the construction of the individual aperture mass maps the smoothing is performed on the curved sky with help of the {\sc smoothing} and {\sc beam2bl} functions of the {\sc healpy} package \citep{Zonca2019}. For estimating the multiscale and tomographic third-order aperture mass we perform a spatial average over the product of three aperture mass maps with smoothing radii $(\theta_i,\theta_j,\theta_k)$ for the tomographic redshift bin combination $(l,m,n)$. Due to the symmetry properties of $M_{\rm ap}^3$ we only consider the configurations for which $\theta_i \leq \theta_j \leq \theta_k$ and $l\leq m\leq n$. For the theoretical model we choose the description outlined in \citep{Heydenreichetal2023} which is based on the relation of $M_{\rm ap}^3$ to the matter bispectrum and the latter is being modelled by the {\sc BiHalofit} fitting function \citep{Takahashietal2020}.
     \item \textit{Peaks and Minima}: Local maxima and minima in the {\sc Healpix} convergence maps are counted in bins of signal-to-noise ratios, $\nu$, computed from the global  noise levels in the survey. Specifically, pure noise maps $\mathcal{N}$ are constructed from generating pure Gaussian maps with mean set to zero and variance set to $\sigma^2 =  \sigma_\epsilon^2 / (2 \Delta \Omega_{\rm pix} n_{\rm gal})$. Here, $\Delta \Omega_{\rm pix}$ is the average pixel area, $n_{\rm gal}$ is the mean galaxy density in our survey (0.6 gal / arcmin$^2$ per tomographic bin)  and $\sigma_\epsilon$ is the intrinsic dispersion in galaxy shapes, per component, which we set to 0.27.
    Peak count statistics are amongst the most widely used non-Gaussian lensing statistics, as it is simple to measure yet highly sensitive to non-Gaussian structures.
     Although some theoretical models have been developed to describe the largest peaks \citep[see][]{Shan18, HSCY1_Peaks_th}, we report here the results on a much wider range of statistics, which can only be accurately modelled from numerical simulations themselves.
-    \item \textit{Lensing PDF}: The lensing one-point function, also referred to as the $\kappa$-PDF, can be computed directly from the histogram of the pixel values of a lensing map, and can further be modelled by large deviation theory, as recently shown in  \citet{LensingPDF}. The modelling is accurate provided that the map is smoothed to erase the highly non-linear structures; we use a top-hat beam of  1 arcmin to achieve this, although this is not strictly required if one is willing to replace the analytical modelling by a simulation-based inference model, as shown in \citet{Giblin_PDF}. 
+    \item \textit{Lensing PDF}: The lensing one-point function, also referred to as the $\kappa$-PDF, can be computed directly from the histogram of the pixel values of a lensing map, and can further be modelled by large deviation theory, as recently shown in  \citet{LensingPDF}. The modelling is accurate provided that the map is smoothed on scales of a few arcmin to erase the highly non-linear structures. We use a top-hat beam of  1 arcmin to achieve this, although this is not strictly required if one is willing to replace the analytical modelling by a simulation-based inference model, as shown in \citet{Giblin_PDF}. 
 \end{enumerate}
 
 These non-Gaussian statistics explore various physical scales and non-linear phenomena, leading to differences in their sensitivity to cosmology and systematic errors.
